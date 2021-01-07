@@ -40,9 +40,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
   Plug 'prabirshrestha/vim-lsp'
   Plug 'mattn/vim-lsp-settings'
-  Plug 'mattn/vim-goimports'
+  "Plug 'mattn/vim-goimports'
   "TyepScript
-  Plug 'ryanolsonx/vim-lsp-typescript'
+  "Plug 'ryanolsonx/vim-lsp-typescript'
 call plug#end()
 
 "scheme
@@ -55,8 +55,10 @@ au FileType go nmap <silent> gr <plug>(lsp-rename)
 
 "NERDTreeToggle
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
 "vim-line tab
 let g:airline#extensions#tabline#enabled = 1
+
 "tabの前後
 nmap <C-m> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab

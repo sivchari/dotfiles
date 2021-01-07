@@ -1,0 +1,15 @@
+set_profile() {
+    /usr/bin/osascript -e "tell application \"Terminal\" to set current settings of first window to settings set \"$1\""
+}
+
+if [[ "$@" == production ]]; then
+ set_profile "Red Sands"
+ ssh production
+ set_profile "Pro"
+elif [[ "$@" == development ]]; then
+ set_profile "Ocean"
+ ssh development
+ set_profile "Pro"
+else
+ ssh $@
+fi

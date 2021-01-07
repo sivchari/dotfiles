@@ -3,15 +3,18 @@
 	email = shibuuuu5@gmail.com
 
 [alias]
-	st = status
-	co = checkout
-	cob = checkout -b
-	rb = rebase
+    a = add
 	br = branch
-	brd = branch -d
 	cm = commit
 	cma = commit --ammend
-	diffw = diff --word-diff
+	co = checkout
+	cob = checkout -b
+	brd = branch -d
+    diffw = diff --word-diff
+    g = git
 	olog = log --oneline
     plog = log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso
+    ph = push origin HEAD
+	rb = rebase
     rs = reset --soft HEAD^
+	st = status

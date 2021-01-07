@@ -1,0 +1,6 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR __fish_initialized:0
+SETUVAR _fisher_oh_2D_my_2D_fish_2F_theme_2D_bobthefish_files:/Users/pc\x2d351/\x2econfig/fish/functions/__bobthefish_colors\x2efish\x1e/Users/pc\x2d351/\x2econfig/fish/functions/__bobthefish_display_colors\x2efish\x1e/Users/pc\x2d351/\x2econfig/fish/functions/__bobthefish_glyphs\x2efish\x1e/Users/pc\x2d351/\x2econfig/fish/functions/bobthefish_display_colors\x2efish\x1e/Users/pc\x2d351/\x2econfig/fish/functions/fish_greeting\x2efish\x1e/Users/pc\x2d351/\x2econfig/fish/functions/fish_mode_prompt\x2efish\x1e/Users/pc\x2d351/\x2econfig/fish/functions/fish_prompt\x2efish\x1e/Users/pc\x2d351/\x2econfig/fish/functions/fish_right_prompt\x2efish\x1e/Users/pc\x2d351/\x2econfig/fish/functions/fish_title\x2efish
+SETUVAR _fisher_plugins:oh\x2dmy\x2dfish/theme\x2dbobthefish
+SETUVAR fish_key_bindings:fish_default_key_bindings

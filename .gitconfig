@@ -1,0 +1,17 @@
+[user]
+	name = siv8510
+	email = shibuuuu5@gmail.com
+
+[alias]
+	st = status
+	co = checkout
+	cob = checkout -b
+	rb = rebase
+	br = branch
+	brd = branch -d
+	cm = commit
+	cma = commit --ammend
+	diffw = diff --word-diff
+	olog = log --oneline
+    plog = log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso
+    rs = reset --soft HEAD^

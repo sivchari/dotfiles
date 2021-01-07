@@ -3,27 +3,40 @@ set enc=utf-8
 set fencs=utf-8                                                                                                                                                       
 "行番号を表示する
 set number
+
 "編集中のファイル名を表示
 set title
+
 "括弧入力時の対応する括弧を表示
-set showmatch
+" set showmatch
+
 "コードの色分け
 syntax on
+
 "インデントをスペース4つ分に設定
 set tabstop=4
+
 "vimの自動生成するインデントをスペース4つに
 set shiftwidth=4
+
 "Tab半角スペース
 set expandtab
+
 "改行時に前の行のインデントを継続する
 set autoindent
+
 "改行時に前の行の構文をチェックし次の行のインデントを増減する
-set smartindent "現在の行を強調表示
+set smartindent
+
+"現在の行を強調表示
 set cursorline
+
 "検索語をハイライト表示
 set hlsearch
+
 "バックスペース
 set backspace=indent,eol,start
+
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 

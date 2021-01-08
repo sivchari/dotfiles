@@ -13,8 +13,11 @@
     diffw = diff --word-diff
     g = git
     olog = log --oneline
-    plog = log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso
     ph = push origin HEAD
+    plog = log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso
+    plh = pull origin HEAD
     rb = rebase
     rs = reset --soft HEAD^
     st = status
+    sts = stash
+    stsp = stash pop

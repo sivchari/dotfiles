@@ -1,4 +1,4 @@
-set shell=/bin/bash
+set shell=bash
 "文字コード設定 
 set enc=utf-8
 set fencs=utf-8                                                                                                                                                       

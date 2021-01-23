@@ -21,3 +21,4 @@
     st = status
     sts = stash
     stsp = stash pop
+    swc = switch -c

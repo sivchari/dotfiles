@@ -6,7 +6,7 @@
     a = add
     br = branch
     cm = commit
-    cma = commit --ammend
+    cma = commit --amend
     co = checkout
     cob = checkout -b
     brd = branch -d

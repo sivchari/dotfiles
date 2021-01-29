@@ -26,8 +26,6 @@ print_header
 
 DOTPATH=~/workspace/dotfiles
 
-mv .gitconfig_sample .gitconfig
-
 echo 'start setup...'
 for f in .??*
 do

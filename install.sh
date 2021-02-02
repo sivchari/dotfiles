@@ -49,7 +49,7 @@ echo '***************************************************'
 echo 'install fish'
 brew install fish
 fish -v
-echo /usr/local/bin/fish > /etc/shells
+echo /usr/local/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
 echo '***************************************************'
 echo 'COMPLETED INSTALL ~> FISH'

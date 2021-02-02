@@ -26,6 +26,7 @@ print_header
 
 DOTPATH=~/workspace/dotfiles
 
+
 echo 'start setup...'
 for f in .??*
 do
@@ -38,6 +39,13 @@ done
 echo '***************************************************'
 echo '*COMPLETED LINKS ~> dotfiles'
 echo '****************************************************'
+
+echo 'install PlugInstall'
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+echo '***************************************************'
+echo 'COMPLETED INSTALL ~> PlugInstall'
+echo '***************************************************'
 
 echo 'install homebrew'
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"

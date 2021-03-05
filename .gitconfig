@@ -22,3 +22,5 @@
     sts = stash
     stsp = stash pop
     swc = switch -c
+[http]
+	cookiefile = /Users/pc-351/.gitcookies

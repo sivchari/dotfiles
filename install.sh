@@ -54,6 +54,14 @@ echo '***************************************************'
 echo 'COMPLETED INSTALL ~> HOMEBREW'
 echo '***************************************************'
 
+echo 'install lucius'
+git clone --depth 1 https://github.com/jonathanfilip/vim-lucius
+mkdir -p ~/.vim/colors
+mv vim-lucius/colors/lucius.vim ~/.vim/colors/
+echo '***************************************************'
+echo 'COMPLETED INSTALL ~> lucius'
+echo '***************************************************'
+
 echo 'install fish'
 brew install fish
 fish -v

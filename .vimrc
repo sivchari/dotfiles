@@ -1,7 +1,10 @@
+colorscheme lucius
+set background=dark
+let g:ligthline = { 'colorscheme': 'lucius' }
+
 set shell=bash
-"文字コード設定 
+"文字コード設定
 set enc=utf-8
-set fencs=utf-8                                                                                                                                                       
 "行番号を表示する
 set number
 
@@ -43,36 +46,45 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 "vim
 call plug#begin('~/.vim/plugged')
-  Plug 'fatih/molokai'
+  Plug 'bronson/vim-trailing-whitespace'
+
   Plug 'ctrlpvim/ctrlp.vim'
+
   Plug 'cohama/lexima.vim'
+
   Plug 'preservim/nerdtree'
+
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+
   Plug 'prabirshrestha/async.vim'
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'lighttiger2505/deoplete-vim-lsp'
   Plug 'prabirshrestha/vim-lsp'
   Plug 'mattn/vim-lsp-settings'
-  "Plug 'mattn/vim-goimports'
-  "TyepScript
-  "Plug 'ryanolsonx/vim-lsp-typescript'
+  Plug 'mattn/vim-goimports'
 call plug#end()
 
-"scheme
-let g:rehash256 = 1
-colorscheme molokai
-
 nmap <silent> gd <plug>(lsp-definition)
-au FileType go nmap <silent> gt <plug>(lsp-type-definition) 
-au FileType go nmap <silent> gr <plug>(lsp-rename) 
+au FileType go nmap <silent> gt <plug>(lsp-type-definition)
+au FileType go nmap <silent> gr <plug>(lsp-rename)
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:asyncomplete_popup_delay = 200
+let g:lsp_text_edit_enabled = 0
 
 "NERDTreeToggle
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
-"vim-line tab
-let g:airline#extensions#tabline#enabled = 1
-
 "tabの前後
 nmap <C-m> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab
+
+"vim-line tab
+let g:airline_theme = 'jellybeans'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "hybrid"
+

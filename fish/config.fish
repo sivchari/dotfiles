@@ -14,3 +14,10 @@ alias dv='docker volume ls'
 alias dvr='docker volume rm'
 
 alias g='git'
+
+eval (/opt/homebrew/bin/brew shellenv | source)
+set -x PATH $HOME/.cargo/bin $PATH
+
+set -x PATH $HOME/workspace/Nim/bin $PATH
+set -x GOPATH $HOME/go
+set -x PATH $PATH $GOPATH/bin

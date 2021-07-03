@@ -1,7 +1,3 @@
-colorscheme lucius
-set background=dark
-let g:ligthline = { 'colorscheme': 'lucius' }
-
 set shell=bash
 "文字コード設定
 set enc=utf-8
@@ -44,47 +40,41 @@ set backspace=indent,eol,start
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-"vim
-call plug#begin('~/.vim/plugged')
-  Plug 'bronson/vim-trailing-whitespace'
+if &compatible
+  set nocompatible
+endif
 
-  Plug 'ctrlpvim/ctrlp.vim'
+" Add the dein installation directory into runtimepath
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-  Plug 'cohama/lexima.vim'
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
+  let s:toml_dir = $HOME . '/.vim/dein'
+  let s:toml = s:toml_dir . '/dein.toml'
 
-  Plug 'preservim/nerdtree'
+  call dein#load_toml(s:toml, {})
+  call dein#end()
+  call dein#save_state()
+endif
 
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+filetype plugin indent on
+syntax enable
 
-  Plug 'prabirshrestha/async.vim'
-  Plug 'prabirshrestha/asyncomplete.vim'
-  Plug 'prabirshrestha/asyncomplete-lsp.vim'
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'lighttiger2505/deoplete-vim-lsp'
-  Plug 'prabirshrestha/vim-lsp'
-  Plug 'mattn/vim-lsp-settings'
-  Plug 'mattn/vim-goimports'
-call plug#end()
+if dein#check_install()
+  call dein#install()
+endif
 
-nmap <silent> gd <plug>(lsp-definition)
-au FileType go nmap <silent> gt <plug>(lsp-type-definition)
-au FileType go nmap <silent> gr <plug>(lsp-rename)
+call map(dein#check_clean(), "delete(v:val, 'rf')")
+" :call dein#recache_runtimepath()
+
+nmap <silent> gd :LspDefinition<CR>
+nmap <silent> gr :LspRename<CR>
+nmap <silent> <Leader>i :LspImplementation<CR>
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:asyncomplete_popup_delay = 200
 let g:lsp_text_edit_enabled = 0
 
-"NERDTreeToggle
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-
-"tabの前後
 nmap <C-m> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab
-
-"vim-line tab
-let g:airline_theme = 'jellybeans'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme = "hybrid"
 

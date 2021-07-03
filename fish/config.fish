@@ -21,3 +21,6 @@ set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/workspace/Nim/bin $PATH
 set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin
+
+alias kali='docker run -it --rm my-kali'
+

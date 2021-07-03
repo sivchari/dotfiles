@@ -26,26 +26,24 @@ print_header
 DOTPATH=~/workspace/dotfiles
 
 
-echo 'start setup...'
-for f in .??*
-do
-    [ "$f" = ".git" ] && continue
-    [ "$f" = ".DS_Store" ] && continue
-
-    ln -snfv "$DOTPATH/$f" "$HOME/$f"
-done
+ln -snfv "$DOTPATH/.gitconfigs" "$HOME/.gitconfigs"
 
 echo '***************************************************'
 echo '*COMPLETED LINKS ~> dotfiles'
 echo '****************************************************'
 
 echo '***************************************************'
-echo 'install PlugInstall'
+echo 'install dein.vim'
 echo '***************************************************'
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+
+sh ./installer.sh ~/.cache/dein
+
+mkdir ~/.vim/dein
+ln -snfv "$DOTPATH/dein/dein.toml" "$HOME/.vim/dein/dein.toml"
+ln -snfv "$DOTPATH/dein/dein_lazy.toml" "$HOME/.vim/dein/dein_lazy.toml"
 echo '***************************************************'
-echo 'COMPLETED INSTALL ~> PlugInstall'
+echo 'COMPLETED INSTALL ~> dein.vim'
 echo '***************************************************'
 
 echo '***************************************************'
@@ -58,17 +56,26 @@ echo 'COMPLETED INSTALL ~> HOMEBREW'
 echo '***************************************************'
 
 echo '***************************************************'
-echo 'install lucius'
+echo 'INSTALL ~> nvim'
 echo '***************************************************'
-git clone --depth 1 https://github.com/jonathanfilip/vim-lucius
-mkdir -p ~/.vim/colors
-mv vim-lucius/colors/lucius.vim ~/.vim/colors/
+brew install neovim
+mkdir -p $HOME/.config/nvim
+ln -snfv "$DOTPATH/init.vim" "$HOME/.config/nvim/init.vim"
 echo '***************************************************'
-echo 'COMPLETED INSTALL ~> lucius'
+echo 'COMPLETED INSTALL ~> nvim'
 echo '***************************************************'
 
 echo '***************************************************'
-echo 'install fish'
+echo 'INSTALL ~> fonts'
+echo '***************************************************'
+brew install font-hack-nerd-font
+cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+echo '***************************************************'
+echo 'COMLETED INSTALL ~> fonts'
+echo '***************************************************'
+
+echo '***************************************************'
+echo 'INSTALL fish'
 echo '***************************************************'
 brew install fish
 fish -v

@@ -78,3 +78,6 @@ let g:lsp_text_edit_enabled = 0
 nmap <C-m> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab
 
+inoremap <silent> jj <ESC>
+
+

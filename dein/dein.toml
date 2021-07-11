@@ -9,13 +9,26 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'preservim/nerdtree'
-hook_add = '''
-    nnoremap <silent><C-e> :NERDTreeToggle<CR>
-'''
+repo = 'lambdalisue/fern.vim'
 
 [[plugins]]
-repo = 'ryanoasis/vim-devicons'
+repo = 'lambdalisue/fern-git-status.vim'
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+hook_add = '''
+    augroup my-glyph-palette
+      autocmd! *
+      autocmd FileType fern call glyph_palette#apply()
+      autocmd FileType nerdtree,startify call glyph_palette#apply()
+    augroup END
+'''
 
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'

@@ -76,7 +76,6 @@ let g:asyncomplete_popup_delay = 200
 let g:lsp_text_edit_enabled = 0
 
 nmap <C-m> <Plug>AirlineSelectPrevTab
-nmap <C-n> <Plug>AirlineSelectNextTab
 
 inoremap <silent> jj <ESC>
 
@@ -85,6 +84,19 @@ autocmd BufNewFile,BufRead *.crs setf rust
 autocmd BufNewFile,BufRead *.rs  let g:quickrun_config.rust = {'exec' : 'cargo run'}
 autocmd BufNewFile,BufRead *.crs let g:quickrun_config.rust = {'exec' : 'cargo script %s -- %a'}
 
+"fern.vim
 nnoremap <C-e> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 let g:fern#renderer = 'nerdfont'
+let g:fern#default_hidden=1
 
+"fzf+rg
+"gu
+nmap <silent> gu :<C-u>silent call <SID>find_rip_grep()<CR>
+function! s:find_rip_grep() abort
+    call fzf#vim#grep(
+                \   'rg --ignore-file ~/.ignore --column --line-number --no-heading --hidden --smart-case .+',
+                \   1,
+                \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%', '?'),
+                \   0,
+                \ )
+endfunction

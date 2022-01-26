@@ -2,18 +2,22 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+# Theme
 [[plugins]]
 repo = 'wojciechkepka/vim-github-dark'
 hook_add = '''
     colorscheme ghdark
 '''
 
+# Tree Plug
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
 
+# Git Status
 [[plugins]]
 repo = 'lambdalisue/fern-git-status.vim'
 
+# Font
 [[plugins]]
 repo = 'lambdalisue/nerdfont.vim'
 
@@ -31,9 +35,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-
-[[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
     let g:airline#extensions#tabline#enabled = 1
@@ -44,9 +45,23 @@ hook_add = '''
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
+# Auto Pairs
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
 
+# Tab AutoComplete
+[[plugins]]
+repo = 'ervandew/supertab'
+
+# Quick Run
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = '''
+    set splitbelow
+    set splitright
+'''
+
+# LSP
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 
@@ -58,16 +73,6 @@ repo = 'prabirshrestha/asyncomplete.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
-
-[[plugins]]
-repo = 'ervandew/supertab'
-
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-hook_add = '''
-    set splitbelow
-    set splitright
-'''
 
 [[plugins]]
 repo = 'mattn/vim-goimports'
@@ -93,30 +98,12 @@ hook_add= '''
     let g:rustfmt_autosave = 1
 '''
 
+# fzf.vim
 [[plugins]]
-repo = 'justmao945/vim-clang'
-hook_add = '''
-let g:clang_auto = 0
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-let g:clang_use_library = 1
-let g:clang_c_completeopt   = 'menuone'
-let g:clang_cpp_completeopt = 'menuone'
-let g:clang_exec = 'clang'
-let g:clang_format_exec = 'clang-format'
-let g:clang_c_options = '-std=c11'
-let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ -pedantic-errors'
-'''
+repo = 'junegunn/fzf'
+build = './install --bin'
+merged = '0'
 
 [[plugins]]
-repo = 'leafgarland/typescript-vim'
-
-[[plugins]]
-repo = 'peitalin/vim-jsx-typescript'
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-
-[[plugins]]
-repo = 'jason0x43/vim-js-indent'
+repo = 'junegunn/fzf.vim'
 

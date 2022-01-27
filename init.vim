@@ -75,7 +75,7 @@ let g:lsp_diagnostics_echo_cursor = 1
 let g:asyncomplete_popup_delay = 200
 let g:lsp_text_edit_enabled = 0
 
-nmap <C-m> <Plug>AirlineSelectPrevTab
+nmap <C-b> <Plug>AirlineSelectPrevTab
 
 inoremap <silent> jj <ESC>
 
@@ -86,6 +86,7 @@ autocmd BufNewFile,BufRead *.crs let g:quickrun_config.rust = {'exec' : 'cargo s
 
 "fern.vim
 nnoremap <C-e> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+nmap <silent> gf :Files<CR>
 let g:fern#renderer = 'nerdfont'
 let g:fern#default_hidden=1
 

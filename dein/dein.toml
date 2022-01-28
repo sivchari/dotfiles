@@ -107,3 +107,7 @@ merged = '0'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 
+# vim-go-expr
+[[plugins]]
+repo = '110y/vim-go-expr-completion'
+

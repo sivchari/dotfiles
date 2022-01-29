@@ -69,7 +69,8 @@ call map(dein#check_clean(), "delete(v:val, 'rf')")
 
 nmap <silent> gd :LspDefinition<CR>
 nmap <silent> gr :LspRename<CR>
-nmap <silent> <Leader>i :LspImplementation<CR>
+nmap <silent> fi :LspCodeAction<CR>
+nmap <silent> gi :LspImplementation<CR>
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:asyncomplete_popup_delay = 200

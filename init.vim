@@ -76,7 +76,7 @@ let g:lsp_diagnostics_echo_cursor = 1
 let g:asyncomplete_popup_delay = 200
 let g:lsp_text_edit_enabled = 0
 
-nmap <C-a> <Plug>AirlineSelectPrevTab
+nmap <C-q> <Plug>AirlineSelectPrevTab
 
 inoremap <silent> jj <ESC>
 

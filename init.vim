@@ -87,12 +87,12 @@ autocmd BufNewFile,BufRead *.crs let g:quickrun_config.rust = {'exec' : 'cargo s
 
 "fern.vim
 nnoremap <C-e> :Fern . -reveal=% -drawer -toggle -width=40<CR>
-nmap <silent> gf :Files<CR>
 let g:fern#renderer = 'nerdfont'
 let g:fern#default_hidden=1
 
 "fzf+rg
 "gu
+nmap <silent> gf :Files<CR>
 nmap <silent> gu :<C-u>silent call <SID>find_rip_grep()<CR>
 function! s:find_rip_grep() abort
     call fzf#vim#grep(

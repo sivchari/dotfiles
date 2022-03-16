@@ -84,6 +84,7 @@ let g:quickrun_config = {}
 autocmd BufNewFile,BufRead *.crs setf rust
 autocmd BufNewFile,BufRead *.rs  let g:quickrun_config.rust = {'exec' : 'cargo run'}
 autocmd BufNewFile,BufRead *.crs let g:quickrun_config.rust = {'exec' : 'cargo script %s -- %a'}
+autocmd BufNewFile,BufRead *.go let g:quickrun_config.go = {'exec' : 'go run main.go'}
 
 "fern.vim
 nnoremap <C-e> :Fern . -reveal=% -drawer -toggle -width=40<CR>

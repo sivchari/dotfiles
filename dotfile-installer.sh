@@ -26,7 +26,7 @@ print_header
 DOTPATH=~/workspace/dotfiles
 
 
-ln -snfv "$DOTPATH/.gitconfigs" "$HOME/.gitconfigs"
+ln -snfv "$DOTPATH/.gitconfig" "$HOME/.gitconfig"
 
 echo '***************************************************'
 echo '*COMPLETED LINKS ~> dotfiles'
@@ -50,6 +50,8 @@ echo '***************************************************'
 echo 'install homebrew'
 echo '***************************************************'
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/s15301/.profile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 brew -v
 echo '***************************************************'
 echo 'COMPLETED INSTALL ~> HOMEBREW'

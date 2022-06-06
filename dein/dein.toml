@@ -111,3 +111,7 @@ repo = 'junegunn/fzf.vim'
 [[plugins]]
 repo = '110y/vim-go-expr-completion'
 
+# scala
+[[plugins]]
+repo = 'jparise/vim-graphql'
+

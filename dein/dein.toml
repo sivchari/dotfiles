@@ -118,3 +118,8 @@ repo = 'jparise/vim-graphql'
 # vim-prettier
 [[plugins]]
 repo = 'prettier/vim-prettier'
+
+# vim-delve
+[[plugins]]
+repo = 'sebdah/vim-delve'
+

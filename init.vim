@@ -159,69 +159,9 @@ function! s:split_type() abort
 endfunction
 
 "dlv
-command! -nargs=* -bang GoDebugTestFunc call s:go_debug_test_function(<bang>0, 0, <f-args>)
-nmap <silent> gb  :<C-u>GoDebugTestFunc<CR>
-command! -nargs=* -bang BP call s:go_debug_toggle_break_point(<f-args>)
-command! -nargs=* -bang BPC call s:go_debug_clear_breakpoionts()
-let g:godebug_breakpoints = []
-let g:godebug_cache_path = $HOME . "/.cache/" . v:progname . "/vim-godebug"
-call mkdir(g:godebug_cache_path, "p")
-let g:godebug_breakpoints_file = g:godebug_cache_path . "/". getpid() . localtime()
-function! s:go_debug_test_function(bang, ...) abort
-    call writefile(g:godebug_breakpoints + ['continue'], g:godebug_breakpoints_file)
-
-    let test_info = json_decode(system(printf('go-test-name -pos %s -file %s', s:cursor_byte_offset(), @%)))
-    let test = search(printf('func %s', test_info.test_func_name), 'bcnW')
-
-    let tmpl = "cd %s && GOMAXPROCS=1 dlv test --init=%s -- -test.run='^%s$'"
-    let wd = expand('%:h')
-
-    let dlv = printf(tmpl, wd, g:godebug_breakpoints_file, test_info.test_func_name)
-
-    if len(test_info.sub_test_names) > 0
-        let dlv = printf("%s/'^%s$'", dlv, test_info.sub_test_names[0])
-    endif
-
-    enew
-    set syntax=go
-    call termopen(dlv)
-    file debug
-    start
-endfunction
-
-function! s:go_debug_toggle_break_point(...) abort
-    let bp_file = expand('%:p')
-
-    let line = line('.')
-    let breakpoint = printf('break %s:%s', bp_file, line)
-
-    exe 'sign define gobreakpoint text=>> texthl=EmphasisLightBlue'
-
-    let i = index(g:godebug_breakpoints, breakpoint)
-    if i == -1
-        call add(g:godebug_breakpoints, breakpoint)
-        execute printf('sign place %s line=%s name=gobreakpoint file=%s', line, line, bp_file)
-    else
-        call remove(g:godebug_breakpoints, i)
-        execute printf('sign unplace %s file=%s', line, bp_file)
-    endif
-endfunction
-
-function! s:go_debug_clear_breakpoionts() abort
-    for b in g:godebug_breakpoints
-        let point = matchlist(b, '\vbreak (.+):(\d+)')
-        let file = point[1]
-
-        execute printf('sign unplace %s file=%s', point[2], file)
-    endfor
-    let g:godebug_breakpoints = []
-endfunction
-
-function! s:go_debug_delete_break_points_file(...) abort
-    if filereadable(g:godebug_breakpoints_file)
-        call delete(g:godebug_breakpoints_file)
-    endif
-endfunction
+nmap <silent> gb  :DlvDebug<CR>
+nmap <silent> bp  :DlvAddBreakpoint<CR>
+nmap <silent> bpc :DlvClearAll<CR>
 
 " vim-go-expr
 nmap <silent> ge :<C-u>silent call go#expr#complete()<CR>

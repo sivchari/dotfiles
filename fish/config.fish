@@ -14,6 +14,8 @@ alias dv='docker volume ls'
 alias dvr='docker volume rm'
 
 alias g='git'
+alias vi='nvim'
+alias c=clear
 
 eval (/opt/homebrew/bin/brew shellenv | source)
 set -x PATH $HOME/.cargo/bin $PATH
@@ -21,6 +23,8 @@ set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/workspace/Nim/bin $PATH
 set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin
+set -x PATH $PLAN9 /usr/local/plan9
 
-alias kali='docker run -it --rm my-kali'
+alias bash=/opt/homebrew/bin/bash
+set -x DOCKER_HOST 'tcp://127.0.0.1:2375'
 

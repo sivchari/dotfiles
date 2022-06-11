@@ -24,6 +24,8 @@ set -x PATH $HOME/workspace/Nim/bin $PATH
 set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin
 set -x PATH $PLAN9 /usr/local/plan9
+set -x PLAN9 /Users/sivchari/workspace/plan9
+set -x PATH $PATH $PLAN9/bin
 
 alias bash=/opt/homebrew/bin/bash
 set -x DOCKER_HOST 'tcp://127.0.0.1:2375'

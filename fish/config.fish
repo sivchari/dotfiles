@@ -16,7 +16,7 @@ alias dvr='docker volume rm'
 alias g='git'
 alias vi='nvim'
 alias c=clear
-alias a='acme -f /mnt/font/GoMono/14a/font'
+alias a='acme -a -f /mnt/font/GoMono/14a/font'
 alias f='fontsrv'
 
 eval (/opt/homebrew/bin/brew shellenv | source)

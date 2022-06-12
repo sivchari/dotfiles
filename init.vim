@@ -8,7 +8,7 @@ set number
 set title
 
 "括弧入力時の対応する括弧を表示
-set showmatch
+"set showmatch
 
 "コードの色分け
 syntax on

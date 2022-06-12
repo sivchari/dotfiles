@@ -1,0 +1,6 @@
+#!/usr/bin/env -S 9 rc
+
+echo name $1 | 9p write acme/$winid/ctl
+echo clean | 9p write acme/$winid/ctl
+echo get | 9p write acme/$winid/ctl
+echo clean | 9p write acme/$winid/ctl

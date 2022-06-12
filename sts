@@ -1,0 +1,5 @@
+#!/usr/bin/env -S 9 rc
+
+slide `{pwd}^/^`{ls *.slide | sort -n | sed 1q}
+echo cleartag | 9p write acme/$winid/ctl
+printf ' %s %s' slide- slide+ | 9p write acme/$winid/tag

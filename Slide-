@@ -1,0 +1,5 @@
+#!/usr/bin/env -S 9 rc
+
+next=`{expr `{sn | rev | cut -d '/' -f1 | rev} - 1}
+
+slide `{pwd}^/^$next

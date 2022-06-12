@@ -46,8 +46,8 @@ hook_add = '''
 repo = 'vim-airline/vim-airline-themes'
 
 # Auto Pairs
-[[plugins]]
-repo = 'jiangmiao/auto-pairs'
+# [[plugins]]
+# repo = 'jiangmiao/auto-pairs'
 
 # Tab AutoComplete
 [[plugins]]

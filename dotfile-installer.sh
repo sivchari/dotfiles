@@ -88,20 +88,20 @@ echo '***************************************************'
 echo 'COMPLETED INSTALL ~> FISH'
 echo '***************************************************'
 
-echo '***************************************************'
-echo 'install powerline'
-echo '***************************************************'
-# clone
-git clone https://github.com/powerline/fonts.git --depth=1
-# install
-cd fonts
-./install.sh
-# clean-up a bit
-cd ..
-rm -rf fonts
-echo '***************************************************'
-echo 'COMPLETED INSTALL ~> POWERLINE'
-echo '***************************************************'
+# echo '***************************************************'
+# echo 'install powerline'
+# echo '***************************************************'
+# # clone
+# git clone https://github.com/powerline/fonts.git --depth=1
+# # install
+# cd fonts
+# ./install.sh
+# # clean-up a bit
+# cd ..
+# rm -rf fonts
+# echo '***************************************************'
+# echo 'COMPLETED INSTALL ~> POWERLINE'
+# echo '***************************************************'
 
 echo '***************************************************'
 echo 'install fisherman'

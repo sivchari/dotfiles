@@ -95,6 +95,17 @@ echo 'COMPLETED SETUP ~> FISHER'
 echo '***************************************************'
 
 
+echo '***************************************************'
+echo "plan9port set up"
+echo '***************************************************'
+cd ~/workspace
+git clone https://github.com/9fans/plan9port plan9
+cd plan9
+./INSTALL
+echo '***************************************************'
+echo 'COMPLETED SETUP ~> plan9port'
+echo '***************************************************'
+
 echo '**************************************************'
 echo 'DOTFILES SETUP FINISHED! bye.'
 echo 'PLEASE CHANGE TO YOUR FONT OF POWERLINE YOU WANNA :)'

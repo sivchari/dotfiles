@@ -9,6 +9,10 @@ Enjoy :)
 
 set `Hack Regular Nerd Font Complete 13`
 
+or 
+
+set `Go mono 14`
+
 Acme editor
 
 https://blog.lufia.org/entry/2022/06/10/100000

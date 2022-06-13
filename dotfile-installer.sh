@@ -68,16 +68,6 @@ echo 'COMPLETED INSTALL ~> nvim'
 echo '***************************************************'
 
 echo '***************************************************'
-echo 'INSTALL ~> fonts'
-echo '***************************************************'
-brew tap homebrew/cask-fonts
-brew install font-hack-nerd-font
-cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
-echo '***************************************************'
-echo 'COMLETED INSTALL ~> fonts'
-echo '***************************************************'
-
-echo '***************************************************'
 echo 'INSTALL fish'
 echo '***************************************************'
 brew install fish
@@ -87,21 +77,6 @@ chsh -s /opt/homebrew/bin/fish
 echo '***************************************************'
 echo 'COMPLETED INSTALL ~> FISH'
 echo '***************************************************'
-
-# echo '***************************************************'
-# echo 'install powerline'
-# echo '***************************************************'
-# # clone
-# git clone https://github.com/powerline/fonts.git --depth=1
-# # install
-# cd fonts
-# ./install.sh
-# # clean-up a bit
-# cd ..
-# rm -rf fonts
-# echo '***************************************************'
-# echo 'COMPLETED INSTALL ~> POWERLINE'
-# echo '***************************************************'
 
 echo '***************************************************'
 echo 'install fisherman'

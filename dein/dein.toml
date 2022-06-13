@@ -38,16 +38,11 @@ hook_add = '''
 repo = 'vim-airline/vim-airline'
 hook_add = '''
     let g:airline#extensions#tabline#enabled = 1
-    let g:airline_powerline_fonts = 1
     let g:airline_theme = "luna"
 '''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
-
-# Auto Pairs
-# [[plugins]]
-# repo = 'jiangmiao/auto-pairs'
 
 # Tab AutoComplete
 [[plugins]]

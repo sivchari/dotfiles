@@ -88,7 +88,6 @@ autocmd BufNewFile,BufRead *.go let g:quickrun_config.go = {'exec' : 'go run mai
 
 "fern.vim
 nnoremap <C-e> :Fern . -reveal=% -drawer -toggle -width=40<CR>
-let g:fern#renderer = 'nerdfont'
 let g:fern#default_hidden=1
 
 "fzf+rg
@@ -165,10 +164,4 @@ nmap <silent> bpc :DlvClearAll<CR>
 
 " vim-go-expr
 nmap <silent> ge :<C-u>silent call go#expr#complete()<CR>
-
-" vim-preteer
-" " vim-prettier
-" https://github.com/prettier/vim-prettier/issues/191#issuecomment-614280489
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
 

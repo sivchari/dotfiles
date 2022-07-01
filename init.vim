@@ -165,3 +165,5 @@ nmap <silent> bpc :DlvClearAll<CR>
 " vim-go-expr
 nmap <silent> ge :<C-u>silent call go#expr#complete()<CR>
 
+" preview-markdown
+let g:previm_open_cmd = 'open -a Google\ Chrome'

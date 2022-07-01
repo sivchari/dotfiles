@@ -118,3 +118,7 @@ repo = 'prettier/vim-prettier'
 [[plugins]]
 repo = 'sebdah/vim-delve'
 
+# Markdown
+[[plugins]]
+repo = 'previm/previm'
+

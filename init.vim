@@ -233,3 +233,15 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
+" neoterm
+tnoremap <silent> <C-w> <C-\><C-n><C-w>
+autocmd TermOpen * startinsert
+nmap <silent> nt :<C-u>silent call <SID>new_terminal()<CR>
+function! s:new_terminal() abort
+    let split = s:split_type()
+    if split ==# 'split'
+        execute('Term')
+    elseif split ==# 'vsplit'
+        execute('VTerm')
+    endif
+endfunction

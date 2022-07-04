@@ -140,3 +140,6 @@ repo = 'simeji/winresizer'
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 
+# terminal on vim
+[[plugins]]
+repo = 'vimlab/split-term.vim'

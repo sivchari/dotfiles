@@ -122,3 +122,21 @@ repo = 'sebdah/vim-delve'
 [[plugins]]
 repo = 'previm/previm'
 
+# rainbow
+[[plugins]]
+repo = 'luochen1990/rainbow'
+
+# tcomment_vim
+# gcc > comment switch
+# visual + gc > comment switch
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+# win_resizer
+[[plugins]]
+repo = 'simeji/winresizer'
+
+# easy motion
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+

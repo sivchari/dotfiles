@@ -37,6 +37,9 @@ set hlsearch
 "バックスペース
 set backspace=indent,eol,start
 
+set write
+set modifiable
+
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
@@ -87,7 +90,7 @@ autocmd BufNewFile,BufRead *.crs let g:quickrun_config.rust = {'exec' : 'cargo s
 autocmd BufNewFile,BufRead *.go let g:quickrun_config.go = {'exec' : 'go run main.go'}
 
 "fern.vim
-nnoremap <C-e> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+nnoremap <C-q> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 let g:fern#default_hidden=1
 
 "fzf+rg
@@ -158,7 +161,7 @@ function! s:split_type() abort
 endfunction
 
 "dlv
-nmap <silent> gb  :DlvDebug<CR>
+nmap <silent> db  :DlvDebug<CR>
 nmap <silent> bp  :DlvAddBreakpoint<CR>
 nmap <silent> bpc :DlvClearAll<CR>
 
@@ -167,3 +170,66 @@ nmap <silent> ge :<C-u>silent call go#expr#complete()<CR>
 
 " preview-markdown
 let g:previm_open_cmd = 'open -a Google\ Chrome'
+
+" rainbow
+let g:rainbow_active = 1
+
+" win_resizer
+let g:winresizer_gui_enable = 1
+
+" delta
+nmap <silent> dl :<C-u>silent call <SID>delta()<CR>
+function! s:delta() abort
+    let split = s:split_type()
+    execut printf('%s delta', split)
+
+    if split ==# 'split'
+        execute(printf('resize %s', floor(&lines * 0.3)))
+    endif
+    call termopen('git diff')
+endfunction
+
+
+" golangci-lint
+nmap <silent> gl :<C-u>silent call <SID>golangci()<CR>
+function! s:golangci() abort
+    let split = s:split_type()
+    execut printf('%s gl', split)
+
+    if split ==# 'split'
+        execute(printf('resize %s', floor(&lines * 0.3)))
+    endif
+    call termopen('golangci-lint run ./... -v')
+endfunction
+
+let mapleader = ","
+
+" lazygit
+nnoremap <silent> <Leader>g :<C-u>silent call <SID>lazygit()<CR>
+function! s:lazygit() abort
+    let split = s:split_type()
+    execut printf('%s lazygit', split)
+
+    if split ==# 'split'
+        execute(printf('resize %s', floor(&lines * 0.3)))
+    endif
+    call termopen('lazygit')
+endfunction
+
+" easymotion
+map <Leader> <Plug>(easymotion-prefix)
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+

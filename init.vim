@@ -217,6 +217,18 @@ function! s:lazygit() abort
     call termopen('lazygit')
 endfunction
 
+" k9s
+nmap <silent> k9 :<C-u>silent call <SID>k9s()<CR>
+function! s:k9s() abort
+    let split = s:split_type()
+    execut printf('%s k9s', split)
+
+    if split ==# 'split'
+        execute(printf('resize %s', floor(&lines * 0.3)))
+    endif
+    call termopen('k9s')
+endfunction
+
 " easymotion
 map <Leader> <Plug>(easymotion-prefix)
 " <Leader>f{char} to move to {char}

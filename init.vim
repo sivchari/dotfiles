@@ -229,6 +229,19 @@ function! s:k9s() abort
     call termopen('k9s')
 endfunction
 
+
+" gobang
+nmap <silent> gb :<C-u>silent call <SID>gobang()<CR>
+function! s:gobang() abort
+    let split = s:split_type()
+    execut printf('%s gobang', split)
+
+    if split ==# 'split'
+        execute(printf('resize %s', floor(&lines * 0.3)))
+    endif
+    call termopen('gobang')
+endfunction
+
 " easymotion
 map <Leader> <Plug>(easymotion-prefix)
 " <Leader>f{char} to move to {char}

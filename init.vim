@@ -108,7 +108,7 @@ function! s:find_rip_grep() abort
 endfunction
 
 "go-test-name
-nmap <silent> gt :<C-u>silent call <SID>go_test_function()<CR>
+nmap <silent> grt :<C-u>silent call <SID>go_test_function()<CR>
 function! s:go_test_function() abort
     let test_info = json_decode(system(printf('go-test-name -pos %s -file %s', s:cursor_byte_offset(), @%)))
 

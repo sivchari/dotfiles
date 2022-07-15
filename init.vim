@@ -28,9 +28,6 @@ set autoindent
 "改行時に前の行の構文をチェックし次の行のインデントを増減する
 set smartindent
 
-"現在の行を強調表示
-set cursorline
-
 "検索語をハイライト表示
 set hlsearch
 
@@ -169,6 +166,9 @@ nmap <silent> bpc :DlvClearAll<CR>
 " vim-go-expr
 nmap <silent> ge :<C-u>silent call go#expr#complete()<CR>
 
+" vim-goimpl
+nmap <silent> gi :GoImpl<CR>
+
 " preview-markdown
 let g:previm_open_cmd = 'open -a Google\ Chrome'
 
@@ -218,7 +218,7 @@ function! s:lazygit() abort
 endfunction
 
 " k9s
-nmap <silent> k9 :<C-u>silent call <SID>k9s()<CR>
+nmap <silent> <Leader>k9 :<C-u>silent call <SID>k9s()<CR>
 function! s:k9s() abort
     let split = s:split_type()
     execut printf('%s k9s', split)

@@ -143,3 +143,7 @@ repo = 'easymotion/vim-easymotion'
 # terminal on vim
 [[plugins]]
 repo = 'vimlab/split-term.vim'
+
+# implements interface for Go
+[[plugins]]
+repo = 'mattn/vim-goimpl'

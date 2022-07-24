@@ -147,3 +147,8 @@ repo = 'vimlab/split-term.vim'
 # implements interface for Go
 [[plugins]]
 repo = 'mattn/vim-goimpl'
+
+# zig
+[[plugins]]
+repo = 'ziglang/zig.vim'
+

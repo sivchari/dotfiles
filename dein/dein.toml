@@ -152,7 +152,3 @@ repo = 'mattn/vim-goimpl'
 [[plugins]]
 repo = 'ziglang/zig.vim'
 
-# nvim-treesitter-context
-[[plugins]]
-repo = 'nvim-treesitter-context'
-

@@ -190,19 +190,6 @@ function! s:delta() abort
     call termopen('git diff')
 endfunction
 
-
-" golangci-lint
-nmap <silent> gl :<C-u>silent call <SID>golangci()<CR>
-function! s:golangci() abort
-    let split = s:split_type()
-    execut printf('%s gl', split)
-
-    if split ==# 'split'
-        execute(printf('resize %s', floor(&lines * 0.3)))
-    endif
-    call termopen('golangci-lint run ./... -v')
-endfunction
-
 let mapleader = ","
 
 " lazygit
@@ -215,31 +202,6 @@ function! s:lazygit() abort
         execute(printf('resize %s', floor(&lines * 0.3)))
     endif
     call termopen('lazygit')
-endfunction
-
-" k9s
-nmap <silent> <Leader>k9 :<C-u>silent call <SID>k9s()<CR>
-function! s:k9s() abort
-    let split = s:split_type()
-    execut printf('%s k9s', split)
-
-    if split ==# 'split'
-        execute(printf('resize %s', floor(&lines * 0.3)))
-    endif
-    call termopen('k9s')
-endfunction
-
-
-" gobang
-nmap <silent> gb :<C-u>silent call <SID>gobang()<CR>
-function! s:gobang() abort
-    let split = s:split_type()
-    execut printf('%s gobang', split)
-
-    if split ==# 'split'
-        execute(printf('resize %s', floor(&lines * 0.3)))
-    endif
-    call termopen('gobang')
 endfunction
 
 " easymotion

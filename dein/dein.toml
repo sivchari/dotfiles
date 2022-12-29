@@ -114,14 +114,6 @@ repo = 'jparise/vim-graphql'
 [[plugins]]
 repo = 'prettier/vim-prettier'
 
-# vim-delve
-[[plugins]]
-repo = 'sebdah/vim-delve'
-
-# Markdown
-[[plugins]]
-repo = 'previm/previm'
-
 # rainbow
 [[plugins]]
 repo = 'luochen1990/rainbow'
@@ -147,8 +139,4 @@ repo = 'vimlab/split-term.vim'
 # implements interface for Go
 [[plugins]]
 repo = 'mattn/vim-goimpl'
-
-# zig
-[[plugins]]
-repo = 'ziglang/zig.vim'
 

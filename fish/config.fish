@@ -1,6 +1,5 @@
 alias w='cd ~/workspace'
 
-
 alias dcd='docker-compose down'
 alias dce='docker-compose exec'
 alias dcp='docker-compose ps'
@@ -29,5 +28,4 @@ set -x PLAN9 /Users/(whoami)/workspace/plan9
 set -x PATH $PATH $PLAN9/bin
 
 alias bash=/opt/homebrew/bin/bash
-set -x DOCKER_HOST 'tcp://127.0.0.1:2375'
 

@@ -2,20 +2,9 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# Theme
-[[plugins]]
-repo = 'wojciechkepka/vim-github-dark'
-hook_add = '''
-    colorscheme ghdark
-'''
-
 # Tree Plug
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
-
-# Git Status
-[[plugins]]
-repo = 'lambdalisue/fern-git-status.vim'
 
 # Font
 [[plugins]]
@@ -24,37 +13,9 @@ repo = 'lambdalisue/nerdfont.vim'
 [[plugins]]
 repo = 'lambdalisue/fern-renderer-nerdfont.vim'
 
-[[plugins]]
-repo = 'lambdalisue/glyph-palette.vim'
-hook_add = '''
-    augroup my-glyph-palette
-      autocmd! *
-      autocmd FileType fern call glyph_palette#apply()
-      autocmd FileType nerdtree,startify call glyph_palette#apply()
-    augroup END
-'''
-
-[[plugins]]
-repo = 'vim-airline/vim-airline'
-hook_add = '''
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline_theme = "luna"
-'''
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-
 # Tab AutoComplete
 [[plugins]]
 repo = 'ervandew/supertab'
-
-# Quick Run
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-hook_add = '''
-    set splitbelow
-    set splitright
-'''
 
 # LSP
 [[plugins]]
@@ -73,21 +34,6 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 repo = 'mattn/vim-goimports'
 
 [[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-
-[[plugins]]
-repo = 'alaviss/nim.nvim'
-on_ft = ['nim']
-hook_add= '''
-au User asyncomplete_setup call asyncomplete#register_source({
-    \ 'name': 'nim',
-    \ 'whitelist': ['nim'],
-    \ 'completor': {opt, ctx -> nim#suggest#sug#GetAllCandidates({start, candidates -> asyncomplete#complete(opt['name'], ctx, start, candidates)})}
-    \ })
-'''
-
-[[plugins]]
 repo = 'rust-lang/rust.vim'
 hook_add= '''
     let g:rustfmt_autosave = 1
@@ -101,22 +47,6 @@ merged = '0'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-
-# vim-go-expr
-[[plugins]]
-repo = '110y/vim-go-expr-completion'
-
-# scala
-[[plugins]]
-repo = 'jparise/vim-graphql'
-
-# vim-prettier
-[[plugins]]
-repo = 'prettier/vim-prettier'
-
-# rainbow
-[[plugins]]
-repo = 'luochen1990/rainbow'
 
 # tcomment_vim
 # gcc > comment switch

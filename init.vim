@@ -4,15 +4,6 @@ set enc=utf-8
 "行番号を表示する
 set number
 
-"編集中のファイル名を表示
-set title
-
-"括弧入力時の対応する括弧を表示
-"set showmatch
-
-"コードの色分け
-syntax on
-
 "インデントをスペース4つ分に設定
 set tabstop=4
 
@@ -28,17 +19,11 @@ set autoindent
 "改行時に前の行の構文をチェックし次の行のインデントを増減する
 set smartindent
 
-"検索語をハイライト表示
-set hlsearch
-
 "バックスペース
 set backspace=indent,eol,start
 
 set write
 set modifiable
-
-" ESC連打でハイライト解除
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 if &compatible
   set nocompatible
@@ -58,14 +43,12 @@ if dein#load_state('~/.cache/dein')
 endif
 
 filetype plugin indent on
-syntax enable
 
 if dein#check_install()
   call dein#install()
 endif
 
 call map(dein#check_clean(), "delete(v:val, 'rf')")
-" :call dein#recache_runtimepath()
 
 nmap <silent> gd :LspDefinition<CR>
 nmap <silent> gr :LspRename<CR>
@@ -73,19 +56,10 @@ nmap <silent> fi :LspCodeAction<CR>
 nmap <silent> gi :LspImplementation<CR>
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
-let g:asyncomplete_popup_delay = 200
 let g:lsp_text_edit_enabled = 0
 
 nmap <C-a> <Plug>AirlineSelectPrevTab
 nmap <C-s> <Plug>AirlineSelectNextTab
-
-inoremap <silent> jj <ESC>
-
-let g:quickrun_config = {}
-autocmd BufNewFile,BufRead *.crs setf rust
-autocmd BufNewFile,BufRead *.rs  let g:quickrun_config.rust = {'exec' : 'cargo run'}
-autocmd BufNewFile,BufRead *.crs let g:quickrun_config.rust = {'exec' : 'cargo script %s -- %a'}
-autocmd BufNewFile,BufRead *.go let g:quickrun_config.go = {'exec' : 'go run main.go'}
 
 "fern.vim
 nnoremap <C-q> :Fern . -reveal=% -drawer -toggle -width=40<CR>
@@ -158,22 +132,8 @@ function! s:split_type() abort
     endif
 endfunction
 
-"dlv
-nmap <silent> db  :DlvDebug<CR>
-nmap <silent> bp  :DlvAddBreakpoint<CR>
-nmap <silent> bpc :DlvClearAll<CR>
-
-" vim-go-expr
-nmap <silent> ge :<C-u>silent call go#expr#complete()<CR>
-
 " vim-goimpl
 nmap <silent> gi :GoImpl<CR>
-
-" preview-markdown
-let g:previm_open_cmd = 'open -a Google\ Chrome'
-
-" rainbow
-let g:rainbow_active = 1
 
 " win_resizer
 let g:winresizer_gui_enable = 1
@@ -234,3 +194,60 @@ function! s:new_terminal() abort
     endif
 endfunction
 
+
+" for acme editor color
+hi clear 
+let g:colors_name = "acme"
+let s:white = "#ffffff"
+let s:black = "#000000"
+let s:pale_yellow = "#ffffea"
+let s:dark_yellow = "#eeee9e"
+let s:dark_green = "#99994c"
+let s:pale_blue = "#eaffff"
+let s:cyan = "#9eeeee"
+let s:purple = "#8888cc"
+let s:blue = "#000099"
+let s:red = "#aa0000"
+let s:green = "#006600"
+exe 'hi! Normal guibg='.s:pale_yellow.' guifg='.s:black.' ctermbg=230 ctermfg=232 '
+exe 'hi! NonText guibg=bg guifg='.s:red.' ctermbg=bg ctermfg=232'
+exe 'hi! StatusLine guibg='.s:purple.' guifg='.s:white.' gui=NONE ctermbg=159 ctermfg=232 cterm=NONE'
+exe 'hi! StatusLineNC guibg='.s:pale_blue.' guifg='.s:black.' gui=NONE ctermbg=194 ctermfg=232 cterm=NONE'
+exe 'hi! WildMenu guibg='.s:black.' guifg='.s:pale_blue.' gui=NONE ctermbg=black ctermfg=159 cterm=NONE'
+exe 'hi! VertSplit guibg='.s:pale_yellow.' guifg='.s:dark_green.' gui=NONE ctermbg=bg ctermfg=232 cterm=NONE'
+exe 'hi! Folded guibg='.s:dark_green.' guifg=fg gui=italic ctermbg=187 ctermfg=fg cterm=italic'
+exe 'hi! FoldColumn guibg='.s:dark_green.' guifg=fg ctermbg=229 ctermfg=fg'
+exe 'hi! SignColumn guibg='.s:dark_green.' guifg=fg ctermbg=229 ctermfg=fg'
+exe 'hi! Conceal guibg=bg guifg=fg gui=NONE ctermbg=bg ctermfg=fg cterm=NONE'
+exe 'hi! LineNr guibg=bg guifg='.s:dark_green.' gui=italic ctermbg=bg ctermfg=239'
+exe 'hi! Visual guibg='.s:dark_yellow.' guifg=fg ctermbg=fg ctermfg=bg'
+exe 'hi! CursorLine guibg='.s:dark_yellow.' guifg=fg ctermbg=230 ctermfg=fg'
+exe 'hi! CursorLineNR guibg=bg guifg='.s:dark_green.' ctermbg=230 ctermfg=fg'
+exe 'hi! Cursor guibg='.s:dark_green.' guifg=fg ctermbg=230 ctermfg=fg'
+exe 'hi! MatchParen guibg='.s:green.' guifg='.s:white.' ctermbg=230 ctermfg=fg'
+exe 'hi! Search guibg='.s:green.' guifg='.s:white.' ctermbg=230 ctermfg=fg'
+exe 'hi! ErrorMsg guibg='.s:red.' guifg='.s:white.' ctermbg=230 ctermfg=fg'
+exe 'hi! Pmenu guibg='.s:dark_yellow.' guifg='.s:black.' ctermbg=230 ctermfg=fg'
+exe 'hi! PmenuSel guibg='.s:green.' guifg='.s:white.' ctermbg=230 ctermfg=fg'
+exe 'hi! PmenuSbar guibg='.s:dark_green.' guifg='.s:black.' ctermbg=230 ctermfg=fg'
+exe 'hi! PmenuThumb guibg='.s:dark_yellow.' guifg='.s:black.' ctermbg=230 ctermfg=fg'
+exe 'hi! TabLineFill guibg='.s:pale_blue.' guifg='.s:pale_blue.' gui=NONE ctermbg=230 ctermfg=fg cterm=NONE'
+exe 'hi! TabLine guibg='.s:pale_blue.' guifg='.s:black.' gui=NONE ctermbg=230 ctermfg=fg'
+exe 'hi! TabLineSel guibg='.s:purple.' guifg='.s:white.' gui=NONE ctermbg=230 ctermfg=fg cterm=NONE'
+" Syntax
+exe 'hi! Comment guibg=bg guifg='.s:dark_green.' gui=NONE ctermbg=bg ctermfg=236 cterm=NONE'
+exe 'hi! Todo guibg=bg guifg='.s:dark_green.' gui=NONE ctermbg=bg ctermfg=236 cterm=NONE'
+exe 'hi! Statement guibg=bg guifg=fg gui=NONE ctermbg=bg ctermfg=fg cterm=NONE'
+exe 'hi! Identifier guibg=bg guifg=fg gui=NONE ctermbg=bg ctermfg=fg cterm=NONE'
+exe 'hi! Type guibg=bg guifg=fg gui=NONE ctermbg=bg ctermfg=fg cterm=NONE'
+exe 'hi! PreProc guibg=bg guifg=fg gui=NONE ctermbg=bg ctermfg=fg cterm=NONE'
+exe 'hi! Constant guibg=bg guifg=fg gui=NONE ctermbg=bg ctermfg=fg cterm=NONE'
+exe 'hi! Special guibg=bg guifg=fg gui=NONE ctermbg=bg ctermfg=fg cterm=NONE'
+exe 'hi! SpecialKey guibg=bg guifg=fg gui=NONE ctermbg=bg ctermfg=fg cterm=NONE'
+exe 'hi! Directory guibg=bg guifg=fg gui=NONE ctermbg=bg ctermfg=fg cterm=NONE'
+exe 'hi! Error guibg='.s:red.' guifg='.s:white.' gui=NONE ctermbg=230 ctermfg=fg'
+exe 'hi! link Title TabLineSel'
+exe 'hi! link MoreMsg Comment'
+exe 'hi! link Question Comment'
+" vim
+hi link vimFunction Identifier

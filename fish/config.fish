@@ -29,3 +29,16 @@ set -x PATH $PATH $PLAN9/bin
 
 alias bash=/opt/homebrew/bin/bash
 
+function fish_user_key_bindings
+  bind \cr 'peco_select_history (commandline -b)'
+  bind \cg 'peco_ghq'
+end
+
+function peco_ghq
+  set selected_repository (ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_repository" ]
+    cd $selected_repository
+    commandline -f repaint
+  end
+end
+

@@ -45,9 +45,6 @@ repo = 'junegunn/fzf'
 build = './install --bin'
 merged = '0'
 
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-
 # tcomment_vim
 # gcc > comment switch
 # visual + gc > comment switch

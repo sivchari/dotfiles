@@ -5,6 +5,15 @@ mkdir -p ~/workspace
 cd ~/workspace
 sh installer.sh
 ```
+
+## Rust
+- install Rust via cargo
+- run following command for nvim-lsp-config
+
+```cli
+fish_add_path $HOME/.rustup/toolchains/nightly-aarch64-apple-darwin/bin
+```
+
 Enjoy :)
 
 set `Hack Regular Nerd Font Complete 13`

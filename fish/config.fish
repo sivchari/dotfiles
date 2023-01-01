@@ -27,18 +27,15 @@ set -x PATH $PATH $GOPATH/bin
 set -x PLAN9 /Users/(whoami)/workspace/plan9
 set -x PATH $PATH $PLAN9/bin
 
-alias bash=/opt/homebrew/bin/bash
+function ghq_fzf_repo -d 'Repository search'
+  ghq list --full-path | fzf --reverse --height=100% | read select
+  [ -n "$select" ]; and cd "$select"
+  echo " $select "
+  commandline -f repaint
+end
 
 function fish_user_key_bindings
-  bind \cr 'peco_select_history (commandline -b)'
-  bind \cg 'peco_ghq'
+  bind \cg ghq_fzf_repo
+  bind \cr __fzf_reverse_isearch
+  bind \cd __fzf_cd
 end
-
-function peco_ghq
-  set selected_repository (ghq list -p | peco --query "$LBUFFER")
-  if [ -n "$selected_repository" ]
-    cd $selected_repository
-    commandline -f repaint
-  end
-end
-

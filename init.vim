@@ -1,9 +1,6 @@
 "文字コード設定
 set enc=utf-8
 
-"行番号を表示する
-set number
-
 "インデントをスペース4つ分に設定
 set tabstop=4
 
@@ -25,13 +22,12 @@ set backspace=indent,eol,start
 set write
 set modifiable
 
+" Add the dein installation directory into runtimepath
 if &compatible
   set nocompatible
 endif
 
-" Add the dein installation directory into runtimepath
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
   let s:toml_dir = $HOME . '/.vim/dein'
@@ -47,23 +43,16 @@ filetype plugin indent on
 if dein#check_install()
   call dein#install()
 endif
-
 call map(dein#check_clean(), "delete(v:val, 'rf')")
-
-nmap <silent> gd :LspDefinition<CR>
-nmap <silent> gr :LspRename<CR>
-nmap <silent> fi :LspCodeAction<CR>
-nmap <silent> gi :LspImplementation<CR>
-let g:lsp_diagnostics_enabled = 1
-let g:lsp_diagnostics_echo_cursor = 1
-let g:lsp_text_edit_enabled = 0
-
-nmap <C-a> <Plug>AirlineSelectPrevTab
-nmap <C-s> <Plug>AirlineSelectNextTab
 
 "fern.vim
 nnoremap <C-q> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 let g:fern#default_hidden=1
+
+"vim-airline
+nmap <C-a> <Plug>AirlineSelectPrevTab
+nmap <C-s> <Plug>AirlineSelectNextTab
+let g:airline#extensions#tabline#enabled = 1
 
 "fzf+rg
 "gu
@@ -131,9 +120,6 @@ function! s:split_type() abort
         return 'vsplit'
     endif
 endfunction
-
-" vim-goimpl
-nmap <silent> gi :GoImpl<CR>
 
 " win_resizer
 let g:winresizer_gui_enable = 1
@@ -251,3 +237,4 @@ exe 'hi! link MoreMsg Comment'
 exe 'hi! link Question Comment'
 " vim
 hi link vimFunction Identifier
+

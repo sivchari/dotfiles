@@ -6,44 +6,61 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
 
-# Font
-[[plugins]]
-repo = 'lambdalisue/nerdfont.vim'
-
-[[plugins]]
-repo = 'lambdalisue/fern-renderer-nerdfont.vim'
-
 # Tab AutoComplete
 [[plugins]]
 repo = 'ervandew/supertab'
 
 # LSP
 [[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
+repo = 'neovim/nvim-lspconfig'
+hook_add = '''
+lua << EOF
+local opts = { noremap=true, silent=true, buffer=bufnr }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', 'pd', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', 'nd', vim.diagnostic.goto_next, opts)
+local on_attach = function(client, bufnr)
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+end
+require'lspconfig'.gopls.setup{ on_attach = on_attach }
+require'lspconfig'.rust_analyzer.setup{ on_attach = on_attach }
+EOF
+'''
 
 [[plugins]]
 repo = 'mattn/vim-goimports'
 
+
+# [[plugins]]
+# repo = 'simrat39/rust-tools.nvim'
+# hook_add = '''
+# lua << EOF
+# local opts = {
+#     tools = {
+#       autoSetHints = true,
+#     }
+# }
+# require'rust-tools'.setup(opts)
+# EOF
+# '''
+
+# Tab Airline
 [[plugins]]
-repo = 'rust-lang/rust.vim'
-hook_add= '''
-    let g:rustfmt_autosave = 1
-'''
+repo = 'vim-airline/vim-airline'
 
 # fzf.vim
 [[plugins]]
 repo = 'junegunn/fzf'
 build = './install --bin'
 merged = '0'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
 
 # tcomment_vim
 # gcc > comment switch
@@ -62,8 +79,4 @@ repo = 'easymotion/vim-easymotion'
 # terminal on vim
 [[plugins]]
 repo = 'vimlab/split-term.vim'
-
-# implements interface for Go
-[[plugins]]
-repo = 'mattn/vim-goimpl'
 

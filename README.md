@@ -9,6 +9,7 @@ sh installer.sh
 # install
 - coc-rust-analyzer
 - coc-go
+- coc-clangd
 
 Enjoy :)
 

@@ -1,5 +1,3 @@
-#=== Steps
-#==============================================================================================
 print_header() {
   printf "\e[34m"
   echo '--------------------------------------------------------------------------------'
@@ -33,20 +31,6 @@ echo '*COMPLETED LINKS ~> dotfiles'
 echo '****************************************************'
 
 echo '***************************************************'
-echo 'install dein.vim'
-echo '***************************************************'
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-
-sh ./installer.sh ~/.cache/dein
-
-mkdir ~/.vim/dein
-ln -snfv "$DOTPATH/dein/dein.toml" "$HOME/.vim/dein/dein.toml"
-ln -snfv "$DOTPATH/dein/dein_lazy.toml" "$HOME/.vim/dein/dein_lazy.toml"
-echo '***************************************************'
-echo 'COMPLETED INSTALL ~> dein.vim'
-echo '***************************************************'
-
-echo '***************************************************'
 echo 'install homebrew'
 echo '***************************************************'
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -70,7 +54,9 @@ echo 'INSTALL ~> nvim'
 echo '***************************************************'
 brew install neovim
 mkdir -p $HOME/.config/nvim
-ln -snfv "$DOTPATH/init.vim" "$HOME/.config/nvim/init.vim"
+ln -snfv "$DOTPATH/init.lua" "$HOME/.config/nvim/init.lua"
+ln -snfv "$DOTPATH/coc-settings.json" "$HOME/.config/nvim/coc-settings.json"
+ln -sv "$DOTPATH/lua/" "$HOME/.config/nvim/lua"
 echo '***************************************************'
 echo 'COMPLETED INSTALL ~> nvim'
 echo '***************************************************'
@@ -103,6 +89,22 @@ echo 'COMPLETED INSTALL ~> jq'
 echo '***************************************************'
 
 echo '***************************************************'    
+echo 'INSTALL llvm'    
+echo '***************************************************'    
+brew install llvm    
+echo '***************************************************'    
+echo 'COMPLETED INSTALL ~> llvm'    
+echo '***************************************************'
+
+echo '***************************************************'    
+echo 'INSTALL ripgrep'    
+echo '***************************************************'    
+brew install ripgrep    
+echo '***************************************************'    
+echo 'COMPLETED INSTALL ~> ripgrep'    
+echo '***************************************************'
+
+echo '***************************************************'    
 echo 'INSTALL htop'    
 echo '***************************************************'    
 brew install htop
@@ -116,14 +118,6 @@ echo '***************************************************'
 brew install jo   
 echo '***************************************************'    
 echo 'COMPLETED INSTALL ~> jo'    
-echo '***************************************************'
-
-echo '***************************************************'    
-echo 'INSTALL lazygit'
-echo '***************************************************'    
-brew install lazygit
-echo '***************************************************'    
-echo 'COMPLETED INSTALL ~> lazygit'    
 echo '***************************************************'
 
 echo '***************************************************'
@@ -150,6 +144,14 @@ brew install fzf
 fisher install jethrokuan/fzf
 echo '***************************************************'
 echo 'COMPLETED INSTALL ~> fzf'
+echo '***************************************************'
+
+echo '***************************************************'    
+echo 'INSTALL bat'
+echo '***************************************************'    
+brew install bat
+echo '***************************************************'
+echo 'COMPLETED INSTALL ~> bat'
 echo '***************************************************'
 
 echo '***************************************************'

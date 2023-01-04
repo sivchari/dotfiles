@@ -6,13 +6,9 @@ cd ~/workspace
 sh installer.sh
 ```
 
-## Rust
-- install Rust via cargo
-- run following command for nvim-lsp-config
-
-```cli
-fish_add_path $HOME/.rustup/toolchains/nightly-aarch64-apple-darwin/bin
-```
+# install
+- coc-rust-analyzer
+- coc-go
 
 Enjoy :)
 

@@ -1,0 +1,23 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+     "go", "rust", "lua"
+  ],
+  "go.goplsOptions": {
+    "hints": {
+      "assignVariableTypes": true,
+      "compositeLiteralFields": true,
+      "compositeLiteralTypes": true,
+      "constantValues": true,
+      "functionTypeParameters": true,
+      "parameterNames": true,
+      "rangeVariableTypes": true
+    },
+    "gofumpt": true,
+    "staticcheck": true
+  },
+  "go.tags": {
+    "skipUnexported": true,
+    "options": ""
+  }
+}
+

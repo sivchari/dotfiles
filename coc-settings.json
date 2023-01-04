@@ -1,6 +1,6 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
-     "go", "rust", "lua"
+     "go", "rust"
   ],
   "go.goplsOptions": {
     "hints": {

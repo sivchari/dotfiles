@@ -32,7 +32,6 @@ require('lazy').setup({
       })
     end
   },
-  { 'rust-lang/rust.vim' },
   { 'neoclide/coc.nvim' },
   { 'rust-lang/rust.vim', ft = "rs" },
   { 'tpope/vim-commentary' },

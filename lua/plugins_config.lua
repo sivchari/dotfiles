@@ -1,6 +1,6 @@
--- fern
-vim.g['fern#default_hidden'] = true
-vim.keymap.set('n', '<c-q>', ':Fern . -reveal=% -drawer -toggle -width=40<cr>')
+-- nvim-tree
+vim.keymap.set('n', '<c-q>', ':NvimTreeOpen<cr>')
+vim.keymap.set('n', '<c-c>', ':NvimTreeClose<cr>')
 
 -- telescope
 vim.keymap.set('n', '<leader>tg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', { noremap = true })
@@ -14,23 +14,14 @@ vim.keymap.set('n', '<leader>l', ':HopLine<cr>')
 -- lazygit
 vim.keymap.set('n', '<leader>g', ':LazyGit<cr>')
 
--- nvim-lspconfig
-local opts = { noremap=true, silent=true }
-
--- tabline
-vim.keymap.set('n', '<space>t', ':tabnew<cr>')
-vim.keymap.set('n', '<leader>d', ':tabclose<cr>')
-vim.keymap.set('n', '<c-s>', ':tabnext<cr>')
-vim.keymap.set('n', '<c-a>', ':tabprevious<cr>')
-
 -- coc
-vim.keymap.set("n", "[g", "<plug>(coc-diagnostic-prev)", { silent = true })
-vim.keymap.set("n", "]g", "<plug>(coc-diagnostic-next)", { silent = true })
-vim.keymap.set("n", "gd", "<plug>(coc-definition)", { silent = true })
-vim.keymap.set("n", "gy", "<plug>(coc-type-definition)", { silent = true })
-vim.keymap.set("n", "gi", "<plug>(coc-implementation)", { silent = true })
-vim.keymap.set("n", "gr", "<plug>(coc-references)", { silent = true })
-vim.keymap.set("n", "K", '<cmd>lua _G.show_docs()<cr>', {silent = true})
+vim.keymap.set('n', '[g', "<plug>(coc-diagnostic-prev)", { silent = true })
+vim.keymap.set('n', ']g', "<plug>(coc-diagnostic-next)", { silent = true })
+vim.keymap.set('n', 'gd', "<plug>(coc-definition)", { silent = true })
+vim.keymap.set('n', 'gy', "<plug>(coc-type-definition)", { silent = true })
+vim.keymap.set('n', 'gi', "<plug>(coc-implementation)", { silent = true })
+vim.keymap.set('n', 'gr', "<plug>(coc-references)", { silent = true })
+vim.keymap.set('n', 'K', '<cmd>lua _G.show_docs()<cr>', {silent = true })
 function _G.show_docs()
     local cw = vim.fn.expand('<cword>')
     if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
@@ -42,23 +33,23 @@ function _G.show_docs()
     end
 end
 
-local completionopts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+local completionopts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
 function _G.check_back_space()
     local col = vim.fn.col('.') - 1
     return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
 end
-vim.keymap.set("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', completionopts)
-vim.keymap.set("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], completionopts)
+vim.keymap.set('i', '<TAB>', 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<tab>" : coc#refresh()', completionopts)
+vim.keymap.set('i', '<S-TAB>', [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], completionopts)
 
 -- coc-go
 vim.api.nvim_create_autocmd({'BufWritePre'}, {
 	pattern = { '*.go' },
 	command = ":silent call CocAction('runCommand', 'editor.action.organizeImport')"
 })
-vim.keymap.set("n", "at", ':CocCommand go.tags.add json<cr>', { silent = true })
-vim.keymap.set("n", "dt", ':CocCommand go.tags.clear<cr>', { silent = true })
-vim.keymap.set("n", "tg", ':CocCommand go.test.generate.function<cr>', { silent = true })
-vim.keymap.set("n", "tgf", ':CocCommand go.test.generate.file<cr>', { silent = true })
-vim.keymap.set("n", "tge", ':CocCommand go.test.generate.exported<cr>', { silent = true })
+vim.keymap.set('n', 'at', ':CocCommand go.tags.add json<cr>', { silent = true })
+vim.keymap.set('n', 'dt', ':CocCommand go.tags.clear<cr>', { silent = true })
+vim.keymap.set('n', 'tg', ':CocCommand go.test.generate.function<cr>', { silent = true })
+vim.keymap.set('n', 'tgf', ':CocCommand go.test.generate.file<cr>', { silent = true })
+vim.keymap.set('n', 'tge', ':CocCommand go.test.generate.exported<cr>', { silent = true })
 
 

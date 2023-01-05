@@ -1,15 +1,15 @@
 -- nvim-tree
-vim.keymap.set('n', '<c-q>', ':NvimTreeOpen<cr>')
-vim.keymap.set('n', '<c-c>', ':NvimTreeClose<cr>')
+vim.keymap.set('n', '<c-q>', ':NvimTreeOpen<cr>', { silent = true })
+vim.keymap.set('n', '<c-c>', ':NvimTreeClose<cr>', { silent = true })
 
 -- telescope
-vim.keymap.set('n', '<leader>tg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', { noremap = true })
-vim.keymap.set('n', '<leader>tf', '<cmd>lua require("telescope.builtin").find_files()<cr>', { noremap = true })
+vim.keymap.set('n', '<leader>tg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
+vim.keymap.set('n', '<leader>tf', '<cmd>lua require("telescope.builtin").find_files()<cr>')
 
 -- easymotion
-vim.keymap.set('n', '<leader>c', ':HopChar1<cr>')
-vim.keymap.set('n', '<leader>w', ':HopWord<cr>')
-vim.keymap.set('n', '<leader>l', ':HopLine<cr>')
+vim.keymap.set('n', '<leader>c', ':HopChar1<cr>', { silent = true })
+vim.keymap.set('n', '<leader>w', ':HopWord<cr>', { silent = true })
+vim.keymap.set('n', '<leader>l', ':HopLine<cr>', { silent = true })
 
 -- lazygit
 vim.keymap.set('n', '<leader>g', ':LazyGit<cr>')

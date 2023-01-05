@@ -46,10 +46,10 @@ vim.api.nvim_create_autocmd({'BufWritePre'}, {
 	pattern = { '*.go' },
 	command = ":silent call CocAction('runCommand', 'editor.action.organizeImport')"
 })
-vim.keymap.set('n', 'at', ':CocCommand go.tags.add json<cr>', { silent = true })
-vim.keymap.set('n', 'dt', ':CocCommand go.tags.clear<cr>', { silent = true })
-vim.keymap.set('n', 'tg', ':CocCommand go.test.generate.function<cr>', { silent = true })
-vim.keymap.set('n', 'tgf', ':CocCommand go.test.generate.file<cr>', { silent = true })
-vim.keymap.set('n', 'tge', ':CocCommand go.test.generate.exported<cr>', { silent = true })
+vim.keymap.set('n', '<leader>at', ':CocCommand go.tags.add json<cr>', { silent = true })
+vim.keymap.set('n', '<leader>dt', ':CocCommand go.tags.clear<cr>', { silent = true })
+vim.keymap.set('n', '<leader>tg', ':CocCommand go.test.generate.function<cr>', { silent = true })
+vim.keymap.set('n', '<leader>tgf', ':CocCommand go.test.generate.file<cr>', { silent = true })
+vim.keymap.set('n', '<leader>tge', ':CocCommand go.test.generate.exported<cr>', { silent = true })
 
 

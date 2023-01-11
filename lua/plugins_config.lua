@@ -3,8 +3,8 @@ vim.keymap.set('n', '<c-q>', ':NvimTreeOpen<cr>', { silent = true })
 vim.keymap.set('n', '<c-c>', ':NvimTreeClose<cr>', { silent = true })
 
 -- telescope
-vim.keymap.set('n', '<leader>tg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
-vim.keymap.set('n', '<leader>tf', '<cmd>lua require("telescope.builtin").find_files()<cr>')
+vim.keymap.set('n', 'tg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
+vim.keymap.set('n', 'tf', '<cmd>lua require("telescope.builtin").find_files()<cr>')
 
 -- easymotion
 vim.keymap.set('n', '<leader>c', ':HopChar1<cr>', { silent = true })

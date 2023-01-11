@@ -32,4 +32,5 @@ return {
   { 'neoclide/coc.nvim' },
   { 'rust-lang/rust.vim', ft = "rs" },
   { 'tpope/vim-commentary' },
+  { 'marko-cerovac/material.nvim' },
 }

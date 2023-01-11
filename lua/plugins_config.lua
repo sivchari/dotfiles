@@ -14,6 +14,10 @@ vim.keymap.set('n', '<leader>l', ':HopLine<cr>', { silent = true })
 -- lazygit
 vim.keymap.set('n', '<leader>g', ':LazyGit<cr>')
 
+-- material
+vim.g.material_style = 'darker'
+vim.cmd('colorscheme material')
+
 -- coc
 vim.keymap.set('n', '[g', "<plug>(coc-diagnostic-prev)", { silent = true })
 vim.keymap.set('n', ']g', "<plug>(coc-diagnostic-next)", { silent = true })

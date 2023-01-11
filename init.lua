@@ -17,4 +17,3 @@ require('global')
 require('opt')
 require('keymap')
 require('plugins_config')
-

@@ -25,6 +25,7 @@ DOTPATH=~/workspace/dotfiles
 
 
 ln -snfv "$DOTPATH/.gitconfig" "$HOME/.gitconfig"
+ln -snfv "$DOTPATH/config.yml" "~/Library/Application Support/lazygit/config.yml"
 
 echo '***************************************************'
 echo 'install homebrew'

@@ -10,6 +10,7 @@ sh installer.sh
 - coc-rust-analyzer
 - coc-go
 - coc-clangd
+- coc-tsserver
 
 Enjoy :)
 

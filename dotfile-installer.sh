@@ -36,9 +36,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew -v
 
 echo '***************************************************'
-echo 'INSTALL ~> bash'
+echo 'INSTALL ~> finch'
 echo '***************************************************'
-brew install bash
+brew install finch
 
 echo '***************************************************'
 echo 'INSTALL ~> nvim'

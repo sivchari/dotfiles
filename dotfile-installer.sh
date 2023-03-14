@@ -25,6 +25,7 @@ DOTPATH=~/workspace/dotfiles
 
 
 ln -snfv "$DOTPATH/.gitconfig" "$HOME/.gitconfig"
+ln -snfv "$DOTPATH/.zshrc" "$HOME/.zshrc"
 ln -snfv "$DOTPATH/config.yml" "~/Library/Application Support/lazygit/config.yml"
 
 echo '***************************************************'
@@ -41,6 +42,16 @@ echo '***************************************************'
 brew install finch
 
 echo '***************************************************'
+echo 'INSTALL ~> rustup'
+echo '***************************************************'
+brew install rustup-init
+
+echo '***************************************************'
+echo 'INSTALL ~> go'
+echo '***************************************************'
+brew install go
+
+echo '***************************************************'
 echo 'INSTALL ~> nvim'
 echo '***************************************************'
 brew install neovim
@@ -48,14 +59,6 @@ mkdir -p $HOME/.config/nvim
 ln -snfv "$DOTPATH/init.lua" "$HOME/.config/nvim/init.lua"
 ln -snfv "$DOTPATH/coc-settings.json" "$HOME/.config/nvim/coc-settings.json"
 ln -sv "$DOTPATH/lua/" "$HOME/.config/nvim/lua"
-
-echo '***************************************************'
-echo 'INSTALL fish'
-echo '***************************************************'
-brew install fish
-fish -v
-echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
-chsh -s /opt/homebrew/bin/fish
 
 echo '***************************************************'    
 echo 'INSTALL tmux'    
@@ -97,11 +100,6 @@ echo 'INSTALL jo'
 echo '***************************************************'    
 brew install jo   
 
-echo '***************************************************'
-echo 'install fisherman'
-echo '***************************************************'
-curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-
 echo '***************************************************'    
 echo 'INSTALL ghq'
 echo '***************************************************'    
@@ -109,31 +107,11 @@ brew install ghq
 git config --global ghq.root '~/workspace'
 
 echo '***************************************************'    
-echo 'INSTALL fzf'
-echo '***************************************************'    
-brew install fzf
-fisher install jethrokuan/fzf
-
-echo '***************************************************'    
 echo 'INSTALL bat'
 echo '***************************************************'    
 brew install bat
-
-echo '***************************************************'
-echo "fisher set up"
-echo '***************************************************'
-cp -r "$DOTPATH/fish" "$HOME/.config"
-
-echo '***************************************************'
-echo "plan9port set up"
-echo '***************************************************'
-cd ~/workspace
-git clone https://github.com/9fans/plan9port plan9
-cd plan9
-./INSTALL
 
 echo '**************************************************'
 echo 'DOTFILES SETUP FINISHED! bye.'
 echo 'PLEASE CHANGE TO YOUR FONT OF POWERLINE YOU WANNA :)'
 echo '**************************************************'
-fish

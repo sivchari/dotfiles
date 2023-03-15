@@ -30,6 +30,14 @@ function _fzf_cd_ghq() {
 zle -N _fzf_cd_ghq
 bindkey "^g" _fzf_cd_ghq
 
+function select-history() {
+  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  CURSOR=$#BUFFER
+}
+
+zle -N select-history
+bindkey '^r' select-history
+
 typeset -U path PATH
 path=(
   /opt/homebrew/bin(N-/)
@@ -44,3 +52,9 @@ path=(
   /usr/local/sbin(N-/)
   /Library/Apple/usr/bin
 )
+
+FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+source ~/.zsh/zsh-autosuggestions
+autoload -Uz compinit && compinit
+
+

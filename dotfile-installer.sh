@@ -26,6 +26,7 @@ DOTPATH=~/workspace/dotfiles
 
 ln -snfv "$DOTPATH/.gitconfig" "$HOME/.gitconfig"
 ln -snfv "$DOTPATH/.zshrc" "$HOME/.zshrc"
+ln -snfv "$DOTPATH/.tmux.conf" "$HOME/.tmux.conf"
 ln -snfv "$DOTPATH/config.yml" "~/Library/Application Support/lazygit/config.yml"
 
 echo '***************************************************'
@@ -35,6 +36,21 @@ echo '***************************************************'
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/s15301/.profile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew -v
+
+echo '***************************************************'
+echo 'install zsh'
+echo '***************************************************'
+brew install zsh
+
+echo '***************************************************'
+echo 'INSTALL ~> zsh-completions'
+echo '***************************************************'
+brew install zsh-completions
+
+# echo '***************************************************'
+# echo 'INSTALL ~> zsh-autosuggestions'
+# echo '***************************************************'
+# brew install zsh-autosuggestions
 
 echo '***************************************************'
 echo 'INSTALL ~> finch'

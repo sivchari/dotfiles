@@ -14,8 +14,6 @@ alias fvr='finch volume rm'
 alias g='git'
 alias vi='nvim'
 alias c=clear
-alias a='acme -a -f /mnt/font/GoMono/14a/font'
-alias f='fontsrv'
 
 function _fzf_cd_ghq() {
     FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --reverse --height=50%"
@@ -54,7 +52,6 @@ path=(
 )
 
 FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-source ~/.zsh/zsh-autosuggestions
 autoload -Uz compinit && compinit
-
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

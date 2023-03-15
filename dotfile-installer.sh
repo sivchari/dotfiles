@@ -47,6 +47,11 @@ echo 'INSTALL ~> zsh-completions'
 echo '***************************************************'
 brew install zsh-completions
 
+echo '***************************************************'
+echo 'INSTALL ~> zsh-syntax-highlighting'
+echo '***************************************************'
+brew install zsh-syntax-highlighting
+
 # echo '***************************************************'
 # echo 'INSTALL ~> zsh-autosuggestions'
 # echo '***************************************************'

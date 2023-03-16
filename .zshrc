@@ -1,5 +1,6 @@
-alias w='cd ~/workspace'
+eval "$(direnv hook $SHELL)"
 
+alias w='cd ~/workspace'
 alias fcd='finch compose down'
 alias fce='finch compose exec'
 alias fcp='finch compose ps'
@@ -10,7 +11,6 @@ alias fr='finch rm'
 alias frmi='finch rmi'
 alias fv='finch volume ls'
 alias fvr='finch volume rm'
-
 alias g='git'
 alias vi='nvim'
 alias c=clear
@@ -64,4 +64,3 @@ zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 PROMPT='%c '\$vcs_info_msg_0_' '
 precmd(){ vcs_info }
-

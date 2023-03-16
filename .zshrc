@@ -1,6 +1,10 @@
 eval "$(direnv hook $SHELL)"
 
 alias w='cd ~/workspace'
+alias finch='/Applications/Finch/bin/finch'
+alias fstart='finch vm start'
+alias fstop='finch vm stop'
+alias fcd='finch vm stop'
 alias fcd='finch compose down'
 alias fce='finch compose exec'
 alias fcp='finch compose ps'
@@ -36,12 +40,14 @@ function select-history() {
 zle -N select-history
 bindkey '^r' select-history
 
+export GOPATH=$HOME/go/bin
+
 typeset -U path PATH
 path=(
   /opt/homebrew/bin(N-/)
   /opt/homebrew/sbin(N-/)
   $HOME/.cargo/bin
-  $HOME/go/bin
+  $GOPATH
   /usr/bin
   /usr/sbin
   /bin

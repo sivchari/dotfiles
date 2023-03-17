@@ -59,7 +59,6 @@ path=(
 
 FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 autoload -Uz compinit && compinit
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 autoload -Uz vcs_info
 setopt prompt_subst

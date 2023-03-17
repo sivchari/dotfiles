@@ -48,16 +48,6 @@ echo '***************************************************'
 brew install zsh-completions
 
 echo '***************************************************'
-echo 'INSTALL ~> zsh-syntax-highlighting'
-echo '***************************************************'
-brew install zsh-syntax-highlighting
-
-# echo '***************************************************'
-# echo 'INSTALL ~> zsh-autosuggestions'
-# echo '***************************************************'
-# brew install zsh-autosuggestions
-
-echo '***************************************************'
 echo 'INSTALL ~> finch'
 echo '***************************************************'
 brew install finch

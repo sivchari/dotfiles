@@ -1,20 +1,16 @@
 eval "$(direnv hook $SHELL)"
 
 alias w='cd ~/workspace'
-alias finch='/Applications/Finch/bin/finch'
-alias fstart='finch vm start'
-alias fstop='finch vm stop'
-alias fcd='finch vm stop'
-alias fcd='finch compose down'
-alias fce='finch compose exec'
-alias fcp='finch compose ps'
-alias fcud='finch compose up -d'
-alias fimages='finch images'
-alias fp='finch ps'
-alias fr='finch rm'
-alias frmi='finch rmi'
-alias fv='finch volume ls'
-alias fvr='finch volume rm'
+alias dcd='docker compose down'
+alias dce='docker compose exec'
+alias dcp='docker compose ps'
+alias dcud='docker compose up -d'
+alias dimages='docker images'
+alias dp='docker ps'
+alias dr='docker rm'
+alias drmi='docker rmi'
+alias dv='docker volume ls'
+alias dvr='docker volume rm'
 alias g='git'
 alias vi='nvim'
 alias c=clear
@@ -40,7 +36,12 @@ function select-history() {
 zle -N select-history
 bindkey '^r' select-history
 
-export GOPATH=$HOME/go/bin
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 typeset -U path PATH
 path=(
@@ -48,6 +49,7 @@ path=(
   /opt/homebrew/sbin(N-/)
   $HOME/.cargo/bin
   $GOPATH
+  $GOBIN
   /usr/bin
   /usr/sbin
   /bin
@@ -69,3 +71,10 @@ zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 PROMPT='%c '\$vcs_info_msg_0_' '
 precmd(){ vcs_info }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# for PLAID
+export DEVELOP_DOCKER_FILE=develop.m1.Dockerfile

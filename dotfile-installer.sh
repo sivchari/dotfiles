@@ -48,9 +48,9 @@ echo '***************************************************'
 brew install zsh-completions
 
 echo '***************************************************'
-echo 'INSTALL ~> finch'
+echo 'INSTALL ~> docker'
 echo '***************************************************'
-brew install finch
+brew install --cask docker
 
 echo '***************************************************'
 echo 'INSTALL ~> direnv'

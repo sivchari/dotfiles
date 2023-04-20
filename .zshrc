@@ -40,8 +40,6 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 typeset -U path PATH
 path=(
@@ -75,9 +73,6 @@ GIT_PS1_SHOWDIRTYSTATE=true
 
 setopt PROMPT_SUBST ; PS1='%F{cyan}%~%f%F{red}$(__git_ps1) '
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # for PLAID
 export DEVELOP_DOCKER_FILE=develop.m1.Dockerfile
+

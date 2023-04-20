@@ -59,18 +59,21 @@ path=(
   /Library/Apple/usr/bin
 )
 
-FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-autoload -Uz compinit && compinit
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions.zsh
+source ~/.zsh/git-prompt.sh
 
-autoload -Uz vcs_info
-setopt prompt_subst
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-PROMPT='%c '\$vcs_info_msg_0_' '
-precmd(){ vcs_info }
+fpath=(~/.zsh $fpath)
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.zsh
+autoload -U compinit && compinit
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
+
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUPSTREAM=auto
+GIT_PS1_SHOWDIRTYSTATE=true
+
+setopt PROMPT_SUBST ; PS1='%F{cyan}%~%f%F{red}$(__git_ps1) '
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

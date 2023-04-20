@@ -43,5 +43,6 @@
 
 [diff]
     colorMoved = default
+
 [ghq]
 	root = ~/workspace

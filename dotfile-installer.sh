@@ -43,6 +43,16 @@ echo '***************************************************'
 brew install zsh
 
 echo '***************************************************'
+echo 'install shell plugins'
+echo '***************************************************'
+bash zsh_plugins.sh
+
+echo '***************************************************'
+echo 'install zsh-syntax-highlighting'
+echo '***************************************************'
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+
+echo '***************************************************'
 echo 'INSTALL ~> zsh-completions'
 echo '***************************************************'
 brew install zsh-completions

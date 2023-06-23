@@ -21,17 +21,34 @@ return {
     end,
   },
   { 'kdheepak/lazygit.nvim' },
-  {
-    'phaazon/hop.nvim',
-    config = function()
-      require('hop').setup({})
-    end,
+  { 'folke/flash.nvim',
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      {
+        "<leader>s",
+        mode = { "n", "x", "o" },
+        function()
+          -- default options: exact mode, multi window, all directions, with a backdrop
+          require("flash").jump()
+        end,
+      },
+      {
+        "<leader>a",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter()
+        end,
+      },
+    },
   },
   { 'nvim-lua/plenary.nvim' },
   { 'nvim-telescope/telescope.nvim' },
   { 'neoclide/coc.nvim' },
   { 'rust-lang/rust.vim', ft = "rs" },
+  { 'jjo/vim-cue', ft="cue" },
   { 'tpope/vim-commentary' },
+  { 'jparise/vim-graphql' },
   { 'marko-cerovac/material.nvim' },
   { 'github/copilot.vim' },
 }

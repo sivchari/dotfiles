@@ -14,10 +14,6 @@ vim.keymap.set('n', '<leader>l', ':HopLine<cr>', { silent = true })
 -- lazygit
 vim.keymap.set('n', '<leader>g', ':LazyGit<cr>')
 
--- material
-vim.g.material_style = 'darker'
-vim.cmd('colorscheme material')
-
 -- coc
 vim.keymap.set('n', '[g', "<plug>(coc-diagnostic-prev)", { silent = true })
 vim.keymap.set('n', ']g', "<plug>(coc-diagnostic-next)", { silent = true })
@@ -47,7 +43,7 @@ vim.keymap.set('i', '<S-TAB>', [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]
 
 -- coc-go
 vim.api.nvim_create_autocmd({'BufWritePre'}, {
-	pattern = { '*.go' },
+    pattern = { '*.go' },
 	command = ":silent call CocAction('runCommand', 'editor.action.organizeImport')"
 })
 vim.keymap.set('n', '<leader>at', ':CocCommand go.tags.add json<cr>', { silent = true })

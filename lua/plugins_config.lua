@@ -52,4 +52,5 @@ vim.keymap.set('n', '<leader>tg', ':CocCommand go.test.generate.function<cr>', {
 vim.keymap.set('n', '<leader>tgf', ':CocCommand go.test.generate.file<cr>', { silent = true })
 vim.keymap.set('n', '<leader>tge', ':CocCommand go.test.generate.exported<cr>', { silent = true })
 
-
+-- color scheme
+vim.cmd('colorscheme github_dark')

@@ -61,5 +61,5 @@ return {
     { 'tpope/vim-commentary' },
     { 'jparise/vim-graphql' },
     { 'github/copilot.vim' },
-    { 'satorunooshie/pairscolorscheme' },
+    { 'projekt0n/github-nvim-theme' },
 }

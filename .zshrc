@@ -14,6 +14,7 @@ alias dvr='docker volume rm'
 alias g='git'
 alias vi='nvim'
 alias c=clear
+alias go=~/workspace/go/bin/go
 
 function _fzf_cd_ghq() {
     FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --reverse --height=50%"

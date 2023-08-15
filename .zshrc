@@ -14,7 +14,6 @@ alias dvr='docker volume rm'
 alias g='git'
 alias vi='nvim'
 alias c=clear
-alias go=~/workspace/go/bin/go
 
 function _fzf_cd_ghq() {
     FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --reverse --height=50%"
@@ -37,18 +36,16 @@ function select-history() {
 zle -N select-history
 bindkey '^r' select-history
 
-export GOPATH=$HOME/go
+export GOROOT_BOOTSTRAP=$HOME/workspace/go-darwin-arm64-bootstrap
+export GOPATH=$HOME/workspace/go
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
-
 
 typeset -U path PATH
 path=(
   /opt/homebrew/bin(N-/)
   /opt/homebrew/sbin(N-/)
   $HOME/.cargo/bin
-  $GOPATH
-  $GOBIN
+  $HOME/workspace/go/bin
   /usr/bin
   /usr/sbin
   /bin

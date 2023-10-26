@@ -22,8 +22,8 @@
     sts = stash
     stsp = stash pop
     swc = switch -c
+    sw = switch
 [http]
-	cookiefile = /Users/sivchari/.gitcookies
 [init]
     defaultBranch = main
 [core]

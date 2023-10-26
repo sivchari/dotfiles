@@ -12,8 +12,10 @@ alias drmi='docker rmi'
 alias dv='docker volume ls'
 alias dvr='docker volume rm'
 alias g='git'
+alias k='kubectl'
 alias vi='nvim'
 alias c=clear
+alias acme="acme -f /mnt/font/'GoMono-Bold'/15a/font"
 
 function _fzf_cd_ghq() {
     FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --reverse --height=50%"
@@ -37,15 +39,15 @@ zle -N select-history
 bindkey '^r' select-history
 
 export GOROOT_BOOTSTRAP=$HOME/workspace/go-darwin-arm64-bootstrap
-export GOPATH=$HOME/workspace/go
-export GOBIN=$GOPATH/bin
+export GOPATH=""
+export GOBIN=$HOME/workspace/go/bin
 
 typeset -U path PATH
 path=(
   /opt/homebrew/bin(N-/)
   /opt/homebrew/sbin(N-/)
   $HOME/.cargo/bin
-  $HOME/workspace/go/bin
+  $GOBIN
   /usr/bin
   /usr/sbin
   /bin
@@ -53,6 +55,7 @@ path=(
   /usr/local/bin(N-/)
   /usr/local/sbin(N-/)
   /Library/Apple/usr/bin
+  $HOME/workspace/plan9/bin
 )
 
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -69,8 +72,15 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 GIT_PS1_SHOWDIRTYSTATE=true
 
-setopt PROMPT_SUBST ; PS1='%F{cyan}%~%f%F{red}$(__git_ps1) '
+KUBE_PS1_PREFIX="["
+KUBE_PS1_SUFFIX="]"
+KUBE_PS1_SYMBOL_ENABLE=true
+KUBE_PS1_NS_ENABLE=false
+source /opt/homebrew/Cellar/kube-ps1/0.8.0/share/kube-ps1.sh
+setopt PROMPT_SUBST ; PS1='$(kube_ps1) %F{cyan}%~%f%F{red}$(__git_ps1) '
 
-# for PLAID
-export DEVELOP_DOCKER_FILE=develop.m1.Dockerfile
 
+export PLAN9="$HOME/plan9port"
+export PATH="$PATH:$PLAN9/bin"
+
+source <(kubectl completion zsh)

@@ -133,9 +133,28 @@ brew install ghq
 git config --global ghq.root '~/workspace'
 
 echo '***************************************************'    
+echo 'INSTALL kube-ps1'
+echo '***************************************************'    
+brew install kube-ps1
+
+echo '***************************************************'    
 echo 'INSTALL bat'
 echo '***************************************************'    
 brew install bat
+
+echo '***************************************************'    
+echo 'INSTALL plan9port'
+echo '***************************************************'    
+cd $HOME && \
+git clone https://github.com/9fans/plan9port plan9port && \
+cd plan9port && \
+./INSTALL && \
+cd $HOME/workspace/dotfiles && \
+cp Slide ~/plan9port/bin && \
+cp Slide+ ~/plan9port/bin && \
+cp Slide- ~/plan9port/bin && \
+cp sn ~/plan9port/bin && \
+cp sts ~/plan9port/bin
 
 echo '**************************************************'
 echo 'DOTFILES SETUP FINISHED! bye.'

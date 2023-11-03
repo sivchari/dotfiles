@@ -22,6 +22,7 @@ vim.keymap.set('n', 'gy', "<plug>(coc-type-definition)", { silent = true })
 vim.keymap.set('n', 'gi', "<plug>(coc-implementation)", { silent = true })
 vim.keymap.set('n', 'gr', "<plug>(coc-references)", { silent = true })
 vim.keymap.set('n', 'K', '<cmd>lua _G.show_docs()<cr>', {silent = true })
+
 function _G.show_docs()
     local cw = vim.fn.expand('<cword>')
     if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then

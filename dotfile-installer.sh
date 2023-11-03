@@ -21,7 +21,7 @@ print_header() {
 
 print_header
 
-DOTPATH=~/workspace/dotfiles
+DOTPATH=~/workspace/sivchari/dotfiles
 
 
 ln -snfv "$DOTPATH/.gitconfig" "$HOME/.gitconfig"

@@ -57,9 +57,10 @@ return {
         },
     },
     { 'neoclide/coc.nvim' },
-    { 'jjo/vim-cue', ft="cue" },
+    { 'jjo/vim-cue', ft='cue' },
     { 'tpope/vim-commentary' },
     { 'jparise/vim-graphql' },
     { 'github/copilot.vim' },
     { 'projekt0n/github-nvim-theme' },
+    { 'ziglang/zig.vim', ft='zig' },
 }

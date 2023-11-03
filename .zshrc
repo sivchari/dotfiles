@@ -38,9 +38,9 @@ function select-history() {
 zle -N select-history
 bindkey '^r' select-history
 
-export GOROOT_BOOTSTRAP=$HOME/workspace/go-darwin-arm64-bootstrap
+export GOROOT_BOOTSTRAP=$HOME/workspace/go/go/go-darwin-arm64-bootstrap
 export GOPATH=""
-export GOBIN=$HOME/workspace/go/bin
+export GOBIN=$HOME/workspace/go/go/bin
 
 typeset -U path PATH
 path=(

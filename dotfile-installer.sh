@@ -23,10 +23,8 @@ print_header
 
 DOTPATH=~/workspace/sivchari/dotfiles
 
-
 ln -snfv "$DOTPATH/.gitconfig" "$HOME/.gitconfig"
 ln -snfv "$DOTPATH/.zshrc" "$HOME/.zshrc"
-ln -snfv "$DOTPATH/.tmux.conf" "$HOME/.tmux.conf"
 ln -snfv "$DOTPATH/config.yml" "~/Library/Application Support/lazygit/config.yml"
 
 echo '***************************************************'
@@ -36,11 +34,6 @@ echo '***************************************************'
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/s15301/.profile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew -v
-
-echo '***************************************************'
-echo 'install zsh'
-echo '***************************************************'
-brew install zsh
 
 echo '***************************************************'
 echo 'install shell plugins'
@@ -63,21 +56,6 @@ echo '***************************************************'
 brew install --cask docker
 
 echo '***************************************************'
-echo 'INSTALL ~> direnv'
-echo '***************************************************'
-brew install direnv
-
-echo '***************************************************'
-echo 'INSTALL ~> rustup'
-echo '***************************************************'
-brew install rustup-init
-
-echo '***************************************************'
-echo 'INSTALL ~> go'
-echo '***************************************************'
-brew install go
-
-echo '***************************************************'
 echo 'INSTALL ~> nvim'
 echo '***************************************************'
 brew install neovim
@@ -87,29 +65,9 @@ ln -snfv "$DOTPATH/coc-settings.json" "$HOME/.config/nvim/coc-settings.json"
 ln -sv "$DOTPATH/lua/" "$HOME/.config/nvim/lua"
 
 echo '***************************************************'    
-echo 'INSTALL tmux'    
-echo '***************************************************'    
-brew install tmux    
-
-echo '***************************************************'    
-echo 'INSTALL terraform-ls'    
-echo '***************************************************'    
-brew install terraform-ls
-
-echo '***************************************************'    
 echo 'INSTALL git-delta'    
 echo '***************************************************'    
 brew install git-delta    
-
-echo '***************************************************'    
-echo 'INSTALL jq'    
-echo '***************************************************'    
-brew install jq    
-
-echo '***************************************************'    
-echo 'INSTALL llvm'    
-echo '***************************************************'    
-brew install llvm    
 
 echo '***************************************************'    
 echo 'INSTALL ripgrep'    
@@ -117,14 +75,9 @@ echo '***************************************************'
 brew install ripgrep    
 
 echo '***************************************************'    
-echo 'INSTALL htop'    
+echo 'INSTALL jnv'    
 echo '***************************************************'    
-brew install htop
-
-echo '***************************************************'    
-echo 'INSTALL jo'    
-echo '***************************************************'    
-brew install jo   
+brew install jnv
 
 echo '***************************************************'    
 echo 'INSTALL ghq'
@@ -136,11 +89,6 @@ echo '***************************************************'
 echo 'INSTALL kube-ps1'
 echo '***************************************************'    
 brew install kube-ps1
-
-echo '***************************************************'    
-echo 'INSTALL bat'
-echo '***************************************************'    
-brew install bat
 
 echo '***************************************************'    
 echo 'INSTALL plan9port'
@@ -156,7 +104,3 @@ cp Slide- ~/plan9port/bin && \
 cp sn ~/plan9port/bin && \
 cp sts ~/plan9port/bin
 
-echo '**************************************************'
-echo 'DOTFILES SETUP FINISHED! bye.'
-echo 'PLEASE CHANGE TO YOUR FONT OF POWERLINE YOU WANNA :)'
-echo '**************************************************'

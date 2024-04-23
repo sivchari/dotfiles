@@ -18,18 +18,6 @@
   "go.tags": {
     "skipUnexported": true,
     "options": ""
-  },
-  "languageserver": {
-    "terraform": {
-      "command": "terraform-ls",
-	  "args": ["serve"],
-      "filetypes": [
-        "terraform",
-        "tf"
-      ],
-      "initializationOptions": {},
-      "settings": {}
-    }
   }
 }
 

@@ -12,8 +12,6 @@
       "parameterNames": true,
       "rangeVariableTypes": true
     },
-    "gofumpt": true,
-    "staticcheck": true
   },
   "go.tags": {
     "skipUnexported": true,

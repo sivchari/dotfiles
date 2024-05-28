@@ -60,4 +60,5 @@ return {
     { 'tpope/vim-commentary' },
     { 'github/copilot.vim' },
     { 'projekt0n/github-nvim-theme' },
+    { 'qnighy/lalrpop.vim' },
 }

@@ -1,5 +1,3 @@
-eval "$(direnv hook $SHELL)"
-
 alias w='cd ~/workspace'
 alias dcd='docker compose down'
 alias dce='docker compose exec'
@@ -14,8 +12,8 @@ alias dvr='docker volume rm'
 alias g='git'
 alias k='kubectl'
 alias vi='nvim'
-alias c=clear
-alias acme="acme -f /mnt/font/'GoMono-Bold'/15a/font"
+alias c='clear'
+alias acme='acme -f /mnt/font/'GoMono-Bold'/15a/font'
 
 function gr() {
     FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --reverse --height=50%"
@@ -27,6 +25,9 @@ function gr() {
 
 export GOROOT_BOOTSTRAP=$HOME/workspace/go/go/go-darwin-arm64-bootstrap
 export GOBIN=$HOME/workspace/go/go/bin
+
+export PATH="$PATH:$HOME/workspace/zig/zig/build/stage3/bin"
+export PATH="$PATH:$HOME/workspace/zig/zls/zig-out/bin"
 
 typeset -U path PATH
 path=(

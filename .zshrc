@@ -26,8 +26,6 @@ function gr() {
 export GOROOT_BOOTSTRAP=$HOME/workspace/go/go/go-darwin-arm64-bootstrap
 export GOBIN=$HOME/workspace/go/go/bin
 
-export PATH="$PATH:$HOME/workspace/zig/zig/build/stage3/bin"
-export PATH="$PATH:$HOME/workspace/zig/zls/zig-out/bin"
 
 typeset -U path PATH
 path=(
@@ -65,9 +63,8 @@ KUBE_PS1_SYMBOL_ENABLE=true
 KUBE_PS1_NS_ENABLE=false
 source /opt/homebrew/Cellar/kube-ps1/0.8.0/share/kube-ps1.sh
 setopt PROMPT_SUBST ; PS1='$(kube_ps1) %F{cyan}%~%f%F{red}$(__git_ps1) '
-
-
 export PLAN9="$HOME/plan9port"
 export PATH="$PATH:$PLAN9/bin"
+export PATH=$HOME/workspace/zig/zig/build/stage3/bin:$PATH
 
 source <(kubectl completion zsh)

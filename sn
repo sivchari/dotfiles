@@ -1,5 +1,0 @@
-#!/usr/bin/env -S 9 rc
-
-file=`{9p read acme/$winid/tag | cut -d ' ' -f1}
-sn=`{echo $file | cut -d '.' -f1}
-echo $sn

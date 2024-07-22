@@ -23,10 +23,6 @@ function gr() {
     [ -n "${dir}" ] && cd "${dir}"
 }
 
-export GOROOT_BOOTSTRAP=$HOME/workspace/go/go/go-darwin-arm64-bootstrap
-export GOBIN=$HOME/workspace/go/go/bin
-
-
 typeset -U path PATH
 path=(
   /opt/homebrew/bin(N-/)
@@ -65,6 +61,10 @@ source /opt/homebrew/Cellar/kube-ps1/0.8.0/share/kube-ps1.sh
 setopt PROMPT_SUBST ; PS1='$(kube_ps1) %F{cyan}%~%f%F{red}$(__git_ps1) '
 export PLAN9="$HOME/plan9port"
 export PATH="$PATH:$PLAN9/bin"
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$HOME/workspace/zig/zig/build/stage3/bin:$PATH
+export PATH=$HOME/workspace/go/go/bin:$PATH
+export GOROOT_BOOTSTRAP=$HOME/workspace/go/go-darwin-arm64-bootstrap
+export GOBIN=$HOME/workspace/go/go/bin
 
 source <(kubectl completion zsh)

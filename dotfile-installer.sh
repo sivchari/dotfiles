@@ -26,14 +26,7 @@ DOTPATH=~/workspace/sivchari/dotfiles
 ln -snfv "$DOTPATH/.gitconfig" "$HOME/.gitconfig"
 ln -snfv "$DOTPATH/.zshrc" "$HOME/.zshrc"
 ln -snfv "$DOTPATH/config.yml" "~/Library/Application Support/lazygit/config.yml"
-
-echo '***************************************************'
-echo 'install homebrew'
-echo '***************************************************'
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/s15301/.profile
-eval "$(/opt/homebrew/bin/brew shellenv)"
-brew -v
+echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc
 
 echo '***************************************************'
 echo 'install shell plugins'
@@ -46,49 +39,25 @@ echo '***************************************************'
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
 echo '***************************************************'
-echo 'INSTALL ~> zsh-completions'
-echo '***************************************************'
-brew install zsh-completions
-
-echo '***************************************************'
-echo 'INSTALL ~> docker'
-echo '***************************************************'
-brew install --cask docker
-
-echo '***************************************************'
 echo 'INSTALL ~> nvim'
 echo '***************************************************'
-brew install neovim
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos-arm64.tar.gz
+tar xzf nvim-macos-arm64.tar.gz
+./nvim-macos-arm64/bin/nvim
 mkdir -p $HOME/.config/nvim
 ln -snfv "$DOTPATH/init.lua" "$HOME/.config/nvim/init.lua"
-ln -snfv "$DOTPATH/coc-settings.json" "$HOME/.config/nvim/coc-settings.json"
-ln -sv "$DOTPATH/lua/" "$HOME/.config/nvim/lua"
+ln -sv "$DOTPATH/lua" "$HOME/.config/nvim/"
 
 echo '***************************************************'    
-echo 'INSTALL git-delta'    
+echo 'aqua'    
 echo '***************************************************'    
-brew install git-delta    
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.1/aqua-installer | bash
+aqua i -a
 
 echo '***************************************************'    
-echo 'INSTALL ripgrep'    
+echo 'Setting ghq'    
 echo '***************************************************'    
-brew install ripgrep    
-
-echo '***************************************************'    
-echo 'INSTALL jnv'    
-echo '***************************************************'    
-brew install jnv
-
-echo '***************************************************'    
-echo 'INSTALL ghq'
-echo '***************************************************'    
-brew install ghq
 git config --global ghq.root '~/workspace'
-
-echo '***************************************************'    
-echo 'INSTALL kube-ps1'
-echo '***************************************************'    
-brew install kube-ps1
 
 echo '***************************************************'    
 echo 'INSTALL plan9port'

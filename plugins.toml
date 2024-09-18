@@ -1,0 +1,31 @@
+shell = "zsh"
+apply = ["defer"]
+
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+apply = ["source"]
+
+[plugins.compinit]
+inline = 'autoload -Uz compinit && zsh-defer compinit'
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
+[plugins.async]
+local = "~/workspace/sivchari/dotfiles/zsh"
+use = ["{!sync,*}.zsh"]
+
+[plugins.sync]
+local = "~/workspace/sivchari/dotfiles/zsh"
+use = ["sync.zsh"]
+apply = ["source"]
+

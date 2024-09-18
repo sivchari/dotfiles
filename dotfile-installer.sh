@@ -53,10 +53,6 @@ echo 'aqua'
 echo '***************************************************'    
 curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.1/aqua-installer | bash
 aqua i -a
-
-echo '***************************************************'    
-echo 'Setting ghq'    
-echo '***************************************************'    
 git config --global ghq.root '~/workspace'
 
 echo '***************************************************'    

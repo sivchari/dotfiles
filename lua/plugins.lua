@@ -158,4 +158,5 @@ return {
 		end,
 	},
 	{ "neovim/nvim-lspconfig" },
+	{ "sebdah/vim-delve" },
 }

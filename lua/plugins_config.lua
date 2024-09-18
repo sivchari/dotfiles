@@ -21,3 +21,10 @@ vim.cmd("colorscheme github_dark")
 
 -- copilot
 vim.g.copilot_filetypes = { markdown = true, gitcommit = true, yaml = true }
+
+-- vim-delve
+keymap.set("n", "<leader>dab", ":DlvAddBreakpoint<cr>")
+keymap.set("n", "<leader>drb", ":DlvRemoveBreakpoint<cr>")
+keymap.set("n", "<leader>dca", ":DlvClearAll<cr>")
+keymap.set("n", "<leader>dt", ":DlvTest<cr>")
+keymap.set("n", "<leader>dd", ":DlvDebug<cr>")

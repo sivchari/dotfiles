@@ -19,3 +19,6 @@ packages:
 - name: kubernetes/kubectl@v1.31.1
 - name: direnv/direnv@v2.34.0
 - name: JohnnyMorganz/StyLua@v0.20.0
+- name: rossmacarthur/sheldon@0.8.0
+- name: junegunn/fzf@v0.55.0
+- name: ahmetb/kubectx@v0.9.5

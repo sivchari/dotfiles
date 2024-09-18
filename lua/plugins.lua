@@ -134,7 +134,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
-			local on_attach = function(client, bufnr)
+			local on_attach = function()
 				local keymap = vim.keymap
 				keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 				keymap.set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<cr>")

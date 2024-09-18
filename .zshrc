@@ -1,17 +1,7 @@
 alias w='cd ~/workspace'
-alias dcd='docker compose down'
-alias dce='docker compose exec'
-alias dcp='docker compose ps'
-alias dcubd='docker compose up --build -d'
-alias dimages='docker images'
-alias dp='docker ps'
-alias dr='docker rm'
-alias drmi='docker rmi'
-alias dv='docker volume ls'
-alias dvr='docker volume rm'
 alias g='git'
 alias k='kubectl'
-alias vi='nvim'
+alias vi='$HOME/workspace/sivchari/dotfiles/nvim-macos-arm64/bin/nvim'
 alias c='clear'
 alias acme='acme -f /mnt/font/'GoMono-Bold'/15a/font'
 
@@ -25,8 +15,6 @@ function gr() {
 
 typeset -U path PATH
 path=(
-  /opt/homebrew/bin(N-/)
-  /opt/homebrew/sbin(N-/)
   $HOME/.cargo/bin
   $GOBIN
   /usr/bin
@@ -37,12 +25,22 @@ path=(
   /usr/local/sbin(N-/)
   /Library/Apple/usr/bin
   $HOME/workspace/plan9/bin
+  $HOME/plan9port/bin
+  $HOME/workspace/go/go/bin
 )
 
+# Zig
+export PATH=$HOME/workspace/zig/zig/build/stage3/bin:$PATH
+
+# Go
+export GOROOT_BOOTSTRAP=$HOME/workspace/go/go-darwin-arm64-bootstrap
+export GOBIN=$HOME/workspace/go/go/bin
+export GOPATH=$HOME/workspace/go
+
+# zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions.zsh
 source ~/.zsh/git-prompt.sh
-
 fpath=(~/.zsh $fpath)
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.zsh
 autoload -U compinit && compinit
@@ -53,18 +51,19 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 GIT_PS1_SHOWDIRTYSTATE=true
 
-KUBE_PS1_PREFIX="["
-KUBE_PS1_SUFFIX="]"
-KUBE_PS1_SYMBOL_ENABLE=true
-KUBE_PS1_NS_ENABLE=false
-source /opt/homebrew/Cellar/kube-ps1/0.8.0/share/kube-ps1.sh
+# kube-ps1
 setopt PROMPT_SUBST ; PS1='$(kube_ps1) %F{cyan}%~%f%F{red}$(__git_ps1) '
-export PLAN9="$HOME/plan9port"
-export PATH="$PATH:$PLAN9/bin"
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=$HOME/workspace/zig/zig/build/stage3/bin:$PATH
-export PATH=$HOME/workspace/go/go/bin:$PATH
-export GOROOT_BOOTSTRAP=$HOME/workspace/go/go-darwin-arm64-bootstrap
-export GOBIN=$HOME/workspace/go/go/bin
-
+source ~/workspace/sivchari/dotfiles/kube-ps1.sh
+KUBE_PS1_SYMBOL_ENABLE=false
+KUBE_PS1_NS_ENABLE=false
 source <(kubectl completion zsh)
+
+# Aqua
+export PATH=${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH
+export AQUA_GLOBAL_CONFIG=$HOME/workspace/sivchari/dotfiles/aqua.yaml
+
+# mise
+eval "$(~/.local/share/aquaproj-aqua/bin/mise activate zsh)"
+
+# direnv
+eval "$(direnv hook zsh)"

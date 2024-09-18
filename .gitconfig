@@ -28,7 +28,7 @@
     defaultBranch = main
 [core]
     pager = delta
-	editor = nvim
+    editor = vi
 
 [interactive]
     diffFilter = delta --color-only
@@ -45,4 +45,5 @@
     colorMoved = default
 
 [ghq]
-	root = ~/workspace
+    root = ~/workspace
+

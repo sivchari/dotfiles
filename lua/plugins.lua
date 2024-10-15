@@ -116,6 +116,22 @@ return {
 		end,
 	},
 	{
+		"nvim-treesitter/nvim-treesitter",
+		event = "VimEnter",
+		build = ":TSUpdate",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = { "go", "lua", "rust", "sql", "yaml", "typescript", "tsx" },
+				highlight = {
+					enable = true,
+				},
+				indent = {
+					enable = true,
+				},
+			})
+		end,
+	},
+	{
 		"williamboman/mason-lspconfig.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()

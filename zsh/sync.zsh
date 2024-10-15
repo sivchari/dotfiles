@@ -1,7 +1,6 @@
 export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$HOME/workspace/plan9/bin:$PATH
-export PATH=$HOME/plan9port/bin:$PATH
 export PATH=$HOME/workspace/go/go/bin:$PATH
+export PATH=$HOME/workspace/sivchari/dotfiles/nvim-macos-arm64/bin:$PATH
 export GOBIN=$HOME/workspace/go/go/bin
 
 eval "$(direnv hook zsh)"
@@ -31,6 +30,11 @@ function set_prompt() {
   fi
 
   PROMPT+=" %# "
+}
+
+function plan9port() {
+  export PATH=$HOME/workspace/plan9/bin:$PATH
+  export PATH=$HOME/plan9port/bin:$PATH
 }
 
 setopt PROMPT_SUBST

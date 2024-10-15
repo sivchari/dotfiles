@@ -22,23 +22,6 @@ return {
 		end,
 	},
 	{
-		"nvim-treesitter/nvim-treesitter",
-		event = "VimEnter",
-		build = ":TSUpdate",
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "go", "lua", "rust", "sql", "yaml", "typescript", "tsx" },
-				highlight = {
-					enable = true,
-				},
-				indent = {
-					enable = true,
-				},
-			})
-		end,
-	},
-	{ "mattn/vim-goimports" },
-	{
 		"kdheepak/lazygit.nvim",
 		event = "VeryLazy",
 	},
@@ -83,6 +66,7 @@ return {
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
 			{ "hrsh7th/cmp-vsnip" },
+			{ "hrsh7th/cmp-cmdline" },
 			{ "hrsh7th/vim-vsnip" },
 			{ "onsails/lspkind.nvim" },
 		},
@@ -126,6 +110,7 @@ return {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = {
 					{ name = "path" },
+					{ name = "cmdline" },
 				},
 			})
 		end,

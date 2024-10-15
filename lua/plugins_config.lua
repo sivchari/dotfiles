@@ -28,3 +28,12 @@ keymap.set("n", "<leader>drb", ":DlvRemoveBreakpoint<cr>")
 keymap.set("n", "<leader>dca", ":DlvClearAll<cr>")
 keymap.set("n", "<leader>dt", ":DlvTest<cr>")
 keymap.set("n", "<leader>dd", ":DlvDebug<cr>")
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = "*.go",
+	callback = function()
+		local file = vim.fn.expand("%:p")
+		vim.fn.system("goimports -w " .. file)
+		vim.cmd("edit")
+	end,
+})

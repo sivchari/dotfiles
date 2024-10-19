@@ -25,6 +25,7 @@ return {
 		"kdheepak/lazygit.nvim",
 		event = "VeryLazy",
 	},
+    { "mattn/vim-goimports" },
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",

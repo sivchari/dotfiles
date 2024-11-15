@@ -7,6 +7,10 @@ eval "$(direnv hook zsh)"
 eval "$(~/.local/share/aquaproj-aqua/bin/mise activate zsh)"
 alias k='kubectl'
 alias g='git'
+alias w='cd ~/workspace'
+alias vi='nvim'
+alias c='clear'
+alias acme='acme -f /mnt/font/'GoMono-Bold'/15a/font'
 
 function git_branch() {
   git rev-parse --abbrev-ref HEAD 2> /dev/null

@@ -1,5 +1,9 @@
 export PATH=${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH
 export AQUA_GLOBAL_CONFIG=$HOME/workspace/sivchari/dotfiles/aqua.yaml
+export PATH=$HOME/.local/bin:$PATH
+export PATH=/opt/homebrew/opt/llvm/bin:$PATH
+export PATH=$HOME/workspace/zig/zig/build/stage3/bin:$PATH
+export PATH=$HOME/workspace/zig/zls/zig-out/bin:$PATH
 
 cache_dir=${XDG_CACHE_HOME:-$HOME/.cache}
 sheldon_cache="$cache_dir/sheldon.zsh"
@@ -10,3 +14,4 @@ if [[ ! -r "$sheldon_cache" || "$sheldon_toml" -nt "$sheldon_cache" ]]; then
 fi
 source "$sheldon_cache"
 unset cache_dir sheldon_cache sheldon_toml
+

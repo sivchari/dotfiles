@@ -2,7 +2,7 @@ shell = "zsh"
 apply = ["defer"]
 
 [templates]
-defer = ""
+defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
@@ -20,12 +20,12 @@ github = "zsh-users/zsh-syntax-highlighting"
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 
-[plugins.async]
-local = "~/workspace/sivchari/dotfiles/zsh"
-use = ["{!sync,*}.zsh"]
-
 [plugins.sync]
 local = "~/workspace/sivchari/dotfiles/zsh"
 use = ["sync.zsh"]
 apply = ["source"]
+
+[plugins.kubectl-completion]
+remote = "https://raw.githubusercontent.com/nnao45/zsh-kubectl-completion/master/_kubectl"
+apply = ["fpath"]
 

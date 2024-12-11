@@ -24,6 +24,7 @@
     swc = switch -c
     sw = switch
 [http]
+    cookiefile = /Users/s15301/.gitcookies
 [init]
     defaultBranch = main
 [core]

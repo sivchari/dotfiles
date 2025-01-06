@@ -11,6 +11,12 @@ return {
 		event = "VeryLazy",
 	},
 	{ "mattn/vim-goimports" },
+    { 
+        "nacro90/numb.nvim",
+        config = function()
+            require("plugins.numb").setup()
+        end,
+    },
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",

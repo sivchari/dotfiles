@@ -5,6 +5,7 @@ M.setup = function()
 	lspconfig.gopls.setup(require("plugins.lsp.gopls"))
 	lspconfig.rust_analyzer.setup(require("plugins.lsp.rust"))
 	lspconfig.zls.setup(require("plugins.lsp.zls"))
+	lspconfig.ts_ls.setup(require("plugins.lsp.tsls"))
 end
 
 return M

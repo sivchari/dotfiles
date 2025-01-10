@@ -27,7 +27,7 @@ function set_prompt() {
   local git_branch_info=$(git_branch)
   local kube_context_info=$(kube_context)
 
-  PROMPT=""
+  PROMPT="%~ "
 
   if [ -n "$git_branch_info" ]; then
     PROMPT+=" %F{green}($git_branch_info)%f"

@@ -33,6 +33,13 @@ return {
 		event = "VeryLazy",
 	},
 	{ "github/copilot.vim" },
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		build = "make tiktoken",
+		config = function()
+			require("plugins.copilotchat").setup()
+		end,
+	},
 	{ "projekt0n/github-nvim-theme" },
 	{
 		"hrsh7th/nvim-cmp",

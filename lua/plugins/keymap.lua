@@ -20,6 +20,12 @@ vim.cmd("colorscheme github_dark")
 -- copilot
 vim.g.copilot_filetypes = { markdown = true, gitcommit = true, yaml = true }
 
+-- copilot chat
+keymap.set("n", "<leader>cct", function()
+	local actions = require("CopilotChat.actions")
+	require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+end)
+
 -- vim-delve
 keymap.set("n", "<leader>dab", ":DlvAddBreakpoint<cr>")
 keymap.set("n", "<leader>drb", ":DlvRemoveBreakpoint<cr>")

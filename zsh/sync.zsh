@@ -1,4 +1,5 @@
 export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin:$PATH
 export PATH=$HOME/workspace/go/go/bin:$PATH
 export PATH=$HOME/workspace/sivchari/dotfiles/nvim-macos-arm64/bin:$PATH
 export GOBIN=$HOME/workspace/go/go/bin
@@ -13,7 +14,7 @@ alias g='git'
 alias w='cd ~/workspace'
 alias vi='nvim'
 alias c='clear'
-alias acme='acme -f /mnt/font/'GoMono-Bold'/15a/font'
+alias acme='acme -f /mnt/font/"GoMono-Bold"/15a/font'
 
 function git_branch() {
   git rev-parse --abbrev-ref HEAD 2> /dev/null

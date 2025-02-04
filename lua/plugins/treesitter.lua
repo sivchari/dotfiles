@@ -2,7 +2,7 @@ local M = {}
 
 M.setup = function()
 	require("nvim-treesitter.configs").setup({
-		ensure_installed = { "go", "lua", "rust", "sql", "yaml", "typescript", "tsx" },
+		ensure_installed = { "go", "lua", "rust", "sql", "yaml", "typescript", "tsx", "json", "bash", "toml" },
 		highlight = {
 			enable = true,
 		},

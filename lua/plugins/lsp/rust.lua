@@ -12,6 +12,9 @@ return {
 			cargo = {
 				loadOutDirsFromCheck = true,
 			},
+			rustc = {
+				source = "discover",
+			},
 			inlayHints = {
 				bindingModeHints = {
 					enable = true,

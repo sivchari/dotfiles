@@ -1,5 +1,5 @@
 export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin:$PATH
+export PATH=$HOME/.rustup/toolchains/nightly-2025-02-06-aarch64-apple-darwin/bin:$PATH
 export PATH=$HOME/workspace/go/go/bin:$PATH
 export PATH=$HOME/workspace/sivchari/dotfiles/nvim-macos-arm64/bin:$PATH
 export GOBIN=$HOME/workspace/go/go/bin

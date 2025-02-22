@@ -5,8 +5,8 @@
 [alias]
     a = add
     br = branch
-    cm = commit -S
-    cma = commit --amend -S
+    cm = commit -s -S
+    cma = commit --amend -s -S
     co = checkout
     cob = checkout -b
     brd = branch -d

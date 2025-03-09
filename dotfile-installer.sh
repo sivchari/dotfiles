@@ -8,18 +8,20 @@ rm nvim-macos-arm64.tar.gz
 DOTPATH=~/workspace/sivchari/dotfiles
 
 ln -snfv "$DOTPATH/.zshrc" "$HOME/.zshrc"
+mkdir -p $HOME/.config/sheldon
 ln -snfv "$DOTPATH/plugins.toml" "$HOME/.config/sheldon/plugins.toml"
 ln -snfv "$DOTPATH/.gitconfig" "$HOME/.gitconfig"
-ln -snfv "$DOTPATH/config.yml" "~/Library/Application Support/lazygit/config.yml"
+mkdir -p ~/Library/Application\ Support/lazygit
+ln -snfv "$DOTPATH/config.yml" ~/Library/Application\ Support/lazygit/config.yml
+mkdir -p $HOME/.config/nvim
 ln -snfv "$DOTPATH/init.lua" "$HOME/.config/nvim/init.lua"
 ln -sv "$DOTPATH/lua" "$HOME/.config/nvim/"
 
 echo '***************************************************'    
 echo 'aqua'    
 echo '***************************************************'    
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.1/aqua-installer | bash
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.1/aqua-installer | bash
 AQUA_GLOBAL_CONFIG=$HOME/workspace/sivchari/dotfiles/aqua.yaml aqua i -a
-git config --global ghq.root '~/workspace'
 
 echo '***************************************************'    
 echo 'INSTALL plan9port'

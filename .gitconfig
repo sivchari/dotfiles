@@ -46,7 +46,7 @@
     colorMoved = default
 
 [ghq]
-    root = ~/workspace
+	root = ~/workspace
 [commit]
 	gpgsign = true
 [gpg]

@@ -4,6 +4,7 @@ export PATH=$HOME/workspace/go/go/bin:$PATH
 export PATH=$HOME/workspace/sivchari/dotfiles/nvim-macos-arm64/bin:$PATH
 export GOBIN=$HOME/workspace/go/go/bin
 export GOROOT_BOOTSTRAP=$HOME/workspace/go/go-darwin-arm64-bootstrap
+export GPG_TTY=$(tty)
 
 eval "$(direnv hook zsh)"
 eval "$(~/.local/share/aquaproj-aqua/bin/mise activate zsh)"

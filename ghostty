@@ -1,0 +1,20 @@
+theme = xcodedarkhc
+
+font-feature = -calt
+font-feature = -dlig
+font-family = "Go Mono Bold"
+
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+cursor-opacity = 0.7
+cursor-style = block
+cursor-style-blink = false
+
+unfocused-split-opacity = 0.825
+
+fullscreen = true
+
+window-inherit-working-directory = true
+
+resize-overlay = never

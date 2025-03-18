@@ -13,6 +13,8 @@ ln -snfv "$DOTPATH/plugins.toml" "$HOME/.config/sheldon/plugins.toml"
 ln -snfv "$DOTPATH/.gitconfig" "$HOME/.gitconfig"
 mkdir -p ~/Library/Application\ Support/lazygit
 ln -snfv "$DOTPATH/config.yml" ~/Library/Application\ Support/lazygit/config.yml
+mkdir -p ~/.config/mise
+ln -snfv "$DOTPATH/config.toml" "$HOME/.config/mise/config.toml"
 mkdir -p $HOME/.config/nvim
 ln -snfv "$DOTPATH/init.lua" "$HOME/.config/nvim/init.lua"
 ln -sv "$DOTPATH/lua" "$HOME/.config/nvim/"

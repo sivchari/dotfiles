@@ -1,0 +1,81 @@
+# chezmoi external - External resource management
+# https://www.chezmoi.io/reference/special-files-and-directories/chezmoiexternal-format/
+
+# =============================================================================
+# AeroSpace - Tiling window manager for macOS
+# =============================================================================
+[".local/share/AeroSpace"]
+type = "archive"
+url = "https://github.com/nikitabobko/AeroSpace/releases/download/v0.20.2-Beta/AeroSpace-v0.20.2-Beta.zip"
+stripComponents = 1
+
+# =============================================================================
+# JankyBorders - Source (built via run_after script)
+# =============================================================================
+[".local/src/JankyBorders"]
+type = "archive"
+url = "https://github.com/FelixKratz/JankyBorders/archive/refs/tags/v1.8.4.tar.gz"
+stripComponents = 1
+
+# =============================================================================
+# SketchyBar - Source (built via run_after script)
+# =============================================================================
+[".local/src/SketchyBar"]
+type = "archive"
+url = "https://github.com/FelixKratz/SketchyBar/archive/refs/tags/v2.23.0.tar.gz"
+stripComponents = 1
+
+# =============================================================================
+# Neovim - Nightly build (Apple Silicon)
+# =============================================================================
+[".local/share/nvim-nightly"]
+type = "archive"
+url = "https://github.com/neovim/neovim/releases/download/nightly/nvim-macos-arm64.tar.gz"
+stripComponents = 1
+
+# =============================================================================
+# OpenSSL - Source (built via run_after script, required for sheldon)
+# =============================================================================
+[".local/src/openssl"]
+type = "archive"
+url = "https://github.com/openssl/openssl/releases/download/openssl-3.4.0/openssl-3.4.0.tar.gz"
+stripComponents = 1
+
+# =============================================================================
+# plan9port - Source (built via run_after script)
+# =============================================================================
+[".local/src/plan9port"]
+type = "archive"
+url = "https://github.com/9fans/plan9port/archive/refs/heads/master.tar.gz"
+stripComponents = 1
+
+# =============================================================================
+# Claude Desktop - AI assistant (DMG installer)
+# =============================================================================
+[".local/share/Claude.dmg"]
+type = "file"
+url = "https://storage.googleapis.com/osprey-downloads-c02f6a0d-347c-492b-a752-3e0651722e97/nest/Claude.dmg"
+
+# =============================================================================
+# blueutil - Bluetooth CLI tool (built via run_after script)
+# =============================================================================
+[".local/src/blueutil"]
+type = "archive"
+url = "https://github.com/toy/blueutil/archive/refs/tags/v2.10.0.tar.gz"
+stripComponents = 1
+
+# =============================================================================
+# SbarLua - Lua API for SketchyBar (built via run_after script)
+# =============================================================================
+[".local/src/SbarLua"]
+type = "archive"
+url = "https://github.com/FelixKratz/SbarLua/archive/refs/heads/main.tar.gz"
+stripComponents = 1
+
+# =============================================================================
+# btmon - Bluetooth battery monitor (built via run_after script)
+# =============================================================================
+[".local/src/btmon"]
+type = "archive"
+url = "https://github.com/sivchari/btmon/archive/refs/heads/main.tar.gz"
+stripComponents = 1

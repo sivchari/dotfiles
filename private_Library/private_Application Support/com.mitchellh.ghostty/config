@@ -1,0 +1,36 @@
+theme = GitHub Dark Default
+cursor-color = #f2d5cf
+cursor-opacity = 0.7
+cursor-style = block
+cursor-style-blink = false
+
+font-feature = -calt
+font-feature = -dlig
+font-size = 15
+font-family = "Go Mono Bold"
+
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+unfocused-split-opacity = 0.825
+
+window-inherit-working-directory = true
+
+resize-overlay = never
+
+# Input
+keybind = shift+enter=text:\n
+
+# Tab navigation (using cmd+shift to avoid conflict with split navigation)
+keybind = shift+cmd+right=next_tab
+keybind = shift+cmd+left=previous_tab
+
+# Split navigation (using cmd+arrow)
+keybind = cmd+left=goto_split:left
+keybind = cmd+down=goto_split:bottom
+keybind = cmd+up=goto_split:top
+keybind = cmd+right=goto_split:right
+
+# macOS window behavior with AeroSpace
+# Disable native fullscreen to prevent conflicts with tiling WM
+macos-non-native-fullscreen = true

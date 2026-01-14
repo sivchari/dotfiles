@@ -1,0 +1,9 @@
+# chezmoi で管理しないファイル
+README.md
+LICENSE
+.claude/
+hack/
+ghq_list.txt
+aqua-checksums.json
+nvim-macos-arm64/
+install.sh

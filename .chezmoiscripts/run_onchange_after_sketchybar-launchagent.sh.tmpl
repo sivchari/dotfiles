@@ -1,0 +1,29 @@
+#!/bin/bash
+# Reload sketchybar LaunchAgent when plist changes
+# plist hash: {{ include "private_Library/private_LaunchAgents/com.felixkratz.sketchybar.plist.tmpl" | sha256sum }}
+
+set -euo pipefail
+
+PLIST="$HOME/Library/LaunchAgents/com.felixkratz.sketchybar.plist"
+SERVICE="com.felixkratz.sketchybar"
+DOMAIN="gui/$(id -u)"
+
+# Skip if plist doesn't exist yet
+if [[ ! -f "$PLIST" ]]; then
+    echo "sketchybar: plist not found, skipping"
+    exit 0
+fi
+
+# Remove stale lock file
+rm -f /tmp/sketchybar_*.lock
+
+# Unload if already loaded (ignore errors)
+launchctl bootout "$DOMAIN/$SERVICE" 2>/dev/null || true
+
+# Load the service
+if launchctl bootstrap "$DOMAIN" "$PLIST"; then
+    echo "sketchybar: LaunchAgent loaded successfully"
+else
+    echo "sketchybar: Failed to load LaunchAgent" >&2
+    exit 1
+fi

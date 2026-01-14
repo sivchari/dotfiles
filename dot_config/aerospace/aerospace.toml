@@ -1,0 +1,147 @@
+# AeroSpace - Tiling window manager configuration
+# https://nikitabobko.github.io/AeroSpace/guide
+
+# =============================================================================
+# General settings
+# =============================================================================
+
+start-at-login = true
+key-mapping.preset = 'qwerty'
+
+# Move mouse cursor to window center on focus change
+on-focus-changed = 'move-mouse window-lazy-center'
+
+# Start JankyBorders and SketchyBar on launch
+after-startup-command = [
+  'exec-and-forget borders',
+  'exec-and-forget sketchybar'
+]
+
+# Update SketchyBar on workspace change
+exec-on-workspace-change = [
+  '/bin/bash', '-c',
+  '$HOME/.local/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+# =============================================================================
+# Gap settings
+# =============================================================================
+
+[gaps]
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 8
+outer.right = 8
+outer.top = 36    # Space for SketchyBar
+outer.bottom = 8
+
+# =============================================================================
+# Floating window rules
+# =============================================================================
+
+# Ghostty - force tiling layout to prevent macOS native tab issues
+# See: https://github.com/nikitabobko/AeroSpace/issues/778
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = ['layout tiling']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = ['layout floating']
+
+# =============================================================================
+# Main mode - Key bindings (ctrl-based)
+# =============================================================================
+
+[mode.main.binding]
+
+# -----------------------------------------------------------------------------
+# Focus navigation (vim-style)
+# -----------------------------------------------------------------------------
+ctrl-h = 'focus left'
+ctrl-j = 'focus down'
+ctrl-k = 'focus up'
+ctrl-l = 'focus right'
+
+# -----------------------------------------------------------------------------
+# Window movement
+# -----------------------------------------------------------------------------
+ctrl-shift-h = 'move left'
+ctrl-shift-j = 'move down'
+ctrl-shift-k = 'move up'
+ctrl-shift-l = 'move right'
+
+# -----------------------------------------------------------------------------
+# Window resize
+# -----------------------------------------------------------------------------
+ctrl-cmd-h = 'resize width -50'
+ctrl-cmd-j = 'resize height +50'
+ctrl-cmd-k = 'resize height -50'
+ctrl-cmd-l = 'resize width +50'
+
+# -----------------------------------------------------------------------------
+# Workspace switching
+# -----------------------------------------------------------------------------
+ctrl-0 = 'workspace 0'
+ctrl-1 = 'workspace 1'
+ctrl-2 = 'workspace 2'
+ctrl-3 = 'workspace 3'
+ctrl-4 = 'workspace 4'
+ctrl-5 = 'workspace 5'
+ctrl-6 = 'workspace 6'
+ctrl-7 = 'workspace 7'
+ctrl-8 = 'workspace 8'
+ctrl-9 = 'workspace 9'
+
+# -----------------------------------------------------------------------------
+# Move window to workspace
+# -----------------------------------------------------------------------------
+ctrl-shift-0 = 'move-node-to-workspace 0'
+ctrl-shift-1 = 'move-node-to-workspace 1'
+ctrl-shift-2 = 'move-node-to-workspace 2'
+ctrl-shift-3 = 'move-node-to-workspace 3'
+ctrl-shift-4 = 'move-node-to-workspace 4'
+ctrl-shift-5 = 'move-node-to-workspace 5'
+ctrl-shift-6 = 'move-node-to-workspace 6'
+ctrl-shift-7 = 'move-node-to-workspace 7'
+ctrl-shift-8 = 'move-node-to-workspace 8'
+ctrl-shift-9 = 'move-node-to-workspace 9'
+
+# -----------------------------------------------------------------------------
+# Layout switching
+# -----------------------------------------------------------------------------
+ctrl-t = 'layout tiles horizontal vertical'
+ctrl-g = 'layout accordion horizontal vertical'
+ctrl-f = 'layout floating tiling'
+
+# -----------------------------------------------------------------------------
+# Miscellaneous
+# -----------------------------------------------------------------------------
+ctrl-shift-q = 'close'
+ctrl-shift-f = 'fullscreen'
+
+# Monitor navigation
+ctrl-shift-n = 'focus-monitor next'
+ctrl-shift-p = 'focus-monitor prev'
+ctrl-shift-cmd-h = 'move-node-to-monitor prev'
+ctrl-shift-cmd-l = 'move-node-to-monitor next'
+
+# Switch to service mode
+ctrl-shift-semicolon = 'mode service'
+
+# =============================================================================
+# Service mode (config reload, etc.)
+# =============================================================================
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']

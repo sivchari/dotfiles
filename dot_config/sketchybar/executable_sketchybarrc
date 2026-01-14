@@ -1,0 +1,10 @@
+#!/usr/bin/env lua
+
+-- SketchyBar configuration entry point
+-- https://felixkratz.github.io/SketchyBar/
+
+-- Set config directory for helpers
+os.execute("export CONFIG_DIR=$HOME/.config/sketchybar")
+
+-- Load main configuration
+dofile(os.getenv("HOME") .. "/.config/sketchybar/init.lua")

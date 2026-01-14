@@ -1,0 +1,50 @@
+[user]
+	name = sivchari
+	email = shibuuuu5@gmail.com
+	signingkey = {{ .gpg_signing_key }}
+
+[alias]
+    a = add
+    br = branch
+    cm = commit -s -S
+    cma = commit --amend -s -S
+    brd = branch -D
+    g = git
+    olog = log --oneline
+    ph = push origin HEAD
+    phf = push --force-with-lease origin HEAD
+    plog = log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso
+    plh = pull origin HEAD
+    rb = rebase
+    st = status
+    sts = stash
+    stsp = stash pop
+    swc = switch -c
+    sw = switch
+
+[init]
+    defaultBranch = main
+
+[core]
+    editor = vi
+    ignorecase = false
+    excludesfile = ~/.config/git/ignore
+
+[diff]
+    colorMoved = default
+    external = difft
+
+[ghq]
+    root = ~/workspace
+
+[commit]
+    gpgsign = true
+
+[gpg]
+    program = gpg
+
+[tag]
+	gpgsign = true
+
+[http]
+    cookiefile = /Users/sivchari/.gitcookies

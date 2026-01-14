@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.felixkratz.sketchybar</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>{{ .chezmoi.homeDir }}/.local/bin/sketchybar</string>
+    </array>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>CONFIG_DIR</key>
+        <string>{{ .chezmoi.homeDir }}/.config/sketchybar</string>
+        <key>HOME</key>
+        <string>{{ .chezmoi.homeDir }}</string>
+        <key>USER</key>
+        <string>{{ .chezmoi.username }}</string>
+        <key>PATH</key>
+        <string>{{ .chezmoi.homeDir }}/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+</dict>
+</plist>

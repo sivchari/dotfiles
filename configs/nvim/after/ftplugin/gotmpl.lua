@@ -1,0 +1,2 @@
+-- Go template filetype
+-- This file registers 'gotmpl' as a known filetype for getcompletion

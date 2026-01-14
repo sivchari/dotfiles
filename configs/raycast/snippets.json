@@ -1,0 +1,7 @@
+[
+  {
+    "name": "Today (ISO)",
+    "keyword": "today",
+    "text": "{date format=\"yyyy-MM-dd\"}"
+  }
+]

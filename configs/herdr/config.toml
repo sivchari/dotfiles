@@ -1,0 +1,66 @@
+# herdr configuration — managed by dotfiles (configs/herdr/config.toml)
+# Full annotated defaults: `herdr --default-config`
+# Reload without restart: prefix+shift+r  (or `herdr server reload-config`)
+#
+# Keys below are written explicitly (even where equal to herdr's default) so
+# every binding is visible and editable here. For keys not listed, see
+# `herdr --default-config`.
+
+[session]
+# Resume Claude/agent panes into their native sessions after a server restart.
+resume_agents_on_restore = true
+
+[ui.toast]
+# Desktop notification when a background workspace's agent finishes or needs
+# attention — useful during long autonomous sessions.
+delivery = "system"
+
+[keys]
+# Prefix (tmux-style). Every "prefix+X" = press prefix, then X.
+prefix = "ctrl+b"
+
+# Pane focus — vim hjkl
+focus_pane_left  = "prefix+h"
+focus_pane_down  = "prefix+j"
+focus_pane_up    = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# Splits
+split_horizontal = "prefix+minus"
+split_vertical   = "prefix+v"
+
+# Tabs
+new_tab      = "prefix+c"
+next_tab     = "prefix+n"
+previous_tab = "prefix+p"
+close_tab    = "prefix+shift+x"
+
+# Panes
+close_pane = "prefix+x"
+zoom       = "prefix+z"
+
+# Workspace navigation (unset by default) — shifted h/l, horizontal
+previous_workspace = "prefix+shift+h"
+next_workspace     = "prefix+shift+l"
+
+# Agent navigation (unset by default) — shifted k/j, vertical
+previous_agent = "prefix+shift+k"
+next_agent     = "prefix+shift+j"
+
+# Custom command: open lazygit in a temporary pane, closed when it exits.
+[[keys.command]]
+key = "prefix+alt+g"
+type = "pane"
+command = "lazygit"
+
+[experimental]
+# macOS + Japanese IME: while prefix mode is active, temporarily switch the
+# host input source to an ASCII layout so prefix chords register even with the
+# IME on, then restore it on exit. Best-effort, macOS only.
+switch_ascii_input_source_in_prefix = true
+
+# Keep the JP IME candidate window tracking the pane cursor when Claude Code
+# paints its own cursor. Scoped to claude to avoid a stray cursor in TUIs that
+# hide it (vim normal mode etc.).
+reveal_hidden_cursor_for_cjk_ime = true
+cjk_ime_agents = ["claude"]

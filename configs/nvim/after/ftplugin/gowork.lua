@@ -1,0 +1,2 @@
+-- Go workspace filetype
+-- This file registers 'gowork' as a known filetype for getcompletion

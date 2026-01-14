@@ -1,0 +1,62 @@
+# Acme-style colors
+background = #ffffea
+foreground = #000000
+selection-background = #eaffff
+selection-foreground = #000000
+cursor-color = #000000
+cursor-style = block
+cursor-style-blink = false
+
+# ANSI colors (muted, Plan 9 style)
+palette = 0=#000000
+palette = 1=#990000
+palette = 2=#006600
+palette = 3=#999900
+palette = 4=#000099
+palette = 5=#990099
+palette = 6=#009999
+palette = 7=#eeeeee
+palette = 8=#666666
+palette = 9=#cc0000
+palette = 10=#00cc00
+palette = 11=#cccc00
+palette = 12=#0000cc
+palette = 13=#cc00cc
+palette = 14=#00cccc
+palette = 15=#ffffff
+
+font-feature = -calt
+font-feature = -dlig
+font-size = 15
+font-family = "Go Mono"
+
+# Go Mono has no CJK glyphs, so Japanese is resolved by the OS fallback chain.
+# That chain shifts whenever the system font registry changes, silently swapping
+# the rendered face. Pin it so the appearance stays stable.
+font-codepoint-map = U+3000-U+30FF,U+4E00-U+9FFF,U+FF00-U+FFEF=Hiragino Maru Gothic ProN
+
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 1
+
+# Unfocused splits are clearly dimmed
+unfocused-split-opacity = 0.8
+
+window-inherit-working-directory = true
+
+resize-overlay = never
+
+# Input
+keybind = shift+enter=text:\n
+# Disable the default split shortcut (cmd+shift+d = new_split:down, cmd+d = new_split:right)
+keybind = cmd+shift+d=unbind
+keybind = cmd+d=unbind
+
+# Disable cmd+enter (toggle_fullscreen). Entering non-native fullscreen persists a
+# screen-sized frame to NSWindowLastPosition; windows restored from it open without
+# .resizable, so AeroSpace can only move them and they overflow the screen edge.
+# cmd+ctrl+f still toggles fullscreen when it is actually wanted.
+keybind = super+enter=unbind
+
+# macOS window behavior with AeroSpace
+# Disable native fullscreen to prevent conflicts with tiling WM
+macos-non-native-fullscreen = true

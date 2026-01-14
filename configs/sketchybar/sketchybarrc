@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# SketchyBar configuration entry point
+# https://felixkratz.github.io/SketchyBar/
+
+export CONFIG_DIR="$HOME/.config/sketchybar"
+
+# Kill stale processes from previous reload
+killall lua >/dev/null 2>&1
+killall network_load >/dev/null 2>&1
+
+"$CONFIG_DIR/helpers/event_providers/network_load/bin/network_load" en0 network_update 1.0 &
+cd "$CONFIG_DIR" && lua init.lua &
+wait

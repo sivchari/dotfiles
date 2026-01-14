@@ -1,0 +1,187 @@
+tools:
+  # Kubernetes
+  - name: kubernetes/kubectl@v1.36.0
+    url:
+      darwin/arm64: https://dl.k8s.io/release/v{version}/bin/darwin/arm64/kubectl
+
+  - name: kubernetes-sigs/kustomize@kustomize/v5.8.1
+    asset:
+      darwin/arm64: kustomize_v{version}_darwin_arm64.tar.gz
+    version_prefix: "kustomize/v"
+
+  - name: kubernetes-sigs/kind@v0.31.0
+    asset:
+      darwin/arm64: kind-darwin-arm64
+
+  - name: kubernetes-sigs/kubebuilder@v4.14.0
+    asset:
+      darwin/arm64: kubebuilder_darwin_arm64
+
+  - name: kubernetes-sigs/cluster-api@v1.13.1
+    asset:
+      darwin/arm64: clusterctl-darwin-arm64
+    bins:
+      - clusterctl
+
+  - name: derailed/k9s@v0.51.0
+    asset:
+      darwin/arm64: k9s_Darwin_arm64.tar.gz
+
+  # Infrastructure
+  - name: helm/helm@v4.1.4
+    url:
+      darwin/arm64: https://get.helm.sh/helm-v{version}-darwin-arm64.tar.gz
+    bins:
+      - helm
+    strip_components: 1
+
+  - name: argoproj/argo-cd@v3.4.1
+    asset:
+      darwin/arm64: argocd-darwin-arm64
+    bins:
+      - argocd
+
+  - name: hashicorp/terraform@v1.15.2
+    url:
+      darwin/arm64: https://releases.hashicorp.com/terraform/{version}/terraform_{version}_darwin_arm64.zip
+
+  # Protocol Buffers
+  - name: bufbuild/buf@v1.69.0
+    asset:
+      darwin/arm64: buf-Darwin-arm64.tar.gz
+    strip_components: 2
+
+  - name: protocolbuffers/protobuf@v34.1
+    asset:
+      darwin/arm64: protoc-{version}-osx-aarch_64.zip
+    bins:
+      - protoc
+    strip_components: 1
+
+  # Languages & Runtimes
+  - name: oven-sh/bun@bun-v1.3.13
+    asset:
+      darwin/arm64: bun-darwin-aarch64.zip
+    version_prefix: "bun-v"
+    bins:
+      - bun
+    strip_components: 1
+
+  - name: astral-sh/uv@0.11.11
+    asset:
+      darwin/arm64: uv-aarch64-apple-darwin.tar.gz
+    version_prefix: ""
+    bins:
+      - uv
+      - uvx
+    strip_components: 1
+
+  # Language Servers & Dev Tools
+  - name: go-delve/delve@v1.26.3
+    asset:
+      darwin/arm64: dlv_{version}_darwin_arm64.tar.gz
+    bins:
+      - dlv
+
+  - name: sivchari/gopls-lazy@v0.4.1
+    asset:
+      darwin/arm64: gopls-lazy_{version}_darwin_arm64.tar.gz
+    bins:
+      - gopls-lazy
+      
+
+  - name: JohnnyMorganz/StyLua@v2.4.1
+    asset:
+      darwin/arm64: stylua-macos-aarch64.zip
+    bins:
+      - stylua
+
+  # CLI Tools
+  - name: cue-lang/cue@v0.16.1
+    url:
+      darwin/arm64: https://github.com/cue-lang/cue/releases/download/v{version}/cue_v{version}_darwin_arm64.tar.gz
+    bins:
+      - cue
+
+  - name: BurntSushi/ripgrep@15.1.0
+    asset:
+      darwin/arm64: ripgrep-{version}-aarch64-apple-darwin.tar.gz
+    version_prefix: ""
+    bins:
+      - rg
+    strip_components: 1
+
+  - name: junegunn/fzf@v0.72.0
+    asset:
+      darwin/arm64: fzf-{version}-darwin_arm64.tar.gz
+
+  - name: mikefarah/yq@v4.53.2
+    asset:
+      darwin/arm64: yq_darwin_arm64.tar.gz
+    bins:
+      - yq
+    bin_map:
+      yq: yq_darwin_arm64
+
+  - name: Wilfred/difftastic@0.69.0
+    asset:
+      darwin/arm64: difft-aarch64-apple-darwin.tar.gz
+    version_prefix: ""
+    bins:
+      - difft
+
+  - name: modem-dev/hunk@v0.17.0
+    asset:
+      darwin/arm64: hunkdiff-darwin-arm64.tar.gz
+    bins:
+      - hunk
+    strip_components: 1
+
+  - name: cli/cli@v2.92.0
+    asset:
+      darwin/arm64: gh_{version}_macOS_arm64.zip
+    bins:
+      - gh
+    strip_components: 1
+
+  - name: x-motemen/ghq@v1.10.1
+    asset:
+      darwin/arm64: ghq_darwin_arm64.zip
+    strip_components: 1
+
+  - name: jesseduffield/lazygit@v0.61.1
+    asset:
+      darwin/arm64: lazygit_{version}_darwin_arm64.tar.gz
+
+  - name: rossmacarthur/sheldon@0.8.5
+    asset:
+      darwin/arm64: sheldon-{version}-aarch64-apple-darwin.tar.gz
+    version_prefix: ""
+
+  - name: carapace-sh/carapace-bin@v1.6.5
+    asset:
+      darwin/arm64: carapace-bin_{version}_darwin_arm64.tar.gz
+    bins:
+      - carapace
+
+  - name: charmbracelet/vhs@v0.11.0
+    asset:
+      darwin/arm64: vhs_{version}_Darwin_arm64.tar.gz
+    strip_components: 1
+
+  - name: oras-project/oras@v1.3.2
+    asset:
+      darwin/arm64: oras_{version}_darwin_arm64.tar.gz
+
+  - name: tilt-dev/tilt@v0.37.3
+    asset:
+      darwin/arm64: tilt.{version}.mac.arm64.tar.gz
+
+  - name: herdrdev/herdr@v0.8.0
+    asset:
+      darwin/arm64: herdr-macos-aarch64
+
+  # Package Managers
+  # - name: aquaproj/aqua@v2.58.0
+  #   asset:
+  #     darwin/arm64: aqua_darwin_arm64.tar.gz

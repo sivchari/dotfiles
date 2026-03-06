@@ -1,18 +1,40 @@
-theme = GitHub Dark Default
-cursor-color = #f2d5cf
-cursor-opacity = 0.7
+# Acme-style colors
+background = #ffffea
+foreground = #000000
+selection-background = #eaffff
+selection-foreground = #000000
+cursor-color = #000000
 cursor-style = block
 cursor-style-blink = false
+
+# ANSI colors (muted, Plan 9 style)
+palette = 0=#000000
+palette = 1=#990000
+palette = 2=#006600
+palette = 3=#999900
+palette = 4=#000099
+palette = 5=#990099
+palette = 6=#009999
+palette = 7=#eeeeee
+palette = 8=#666666
+palette = 9=#cc0000
+palette = 10=#00cc00
+palette = 11=#cccc00
+palette = 12=#0000cc
+palette = 13=#cc00cc
+palette = 14=#00cccc
+palette = 15=#ffffff
 
 font-feature = -calt
 font-feature = -dlig
 font-size = 15
-font-family = "Go Mono Bold"
+font-family = "Go Mono"
 
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 2
 
-unfocused-split-opacity = 0.825
+# Unfocused splits are clearly dimmed
+unfocused-split-opacity = 0.8
 
 window-inherit-working-directory = true
 

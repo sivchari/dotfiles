@@ -14,8 +14,8 @@ keymap.set("n", "<leader>g", ":LazyGit<cr>")
 -- flash
 keymap.set("n", "<leader>s", ":lua require('flash').jump()<cr>")
 
--- color scheme
-vim.cmd("colorscheme github_dark")
+-- color scheme (Acme editor style)
+vim.cmd("colorscheme acme")
 
 -- copilot
 vim.g.copilot_filetypes = { markdown = true, gitcommit = true, yaml = true }

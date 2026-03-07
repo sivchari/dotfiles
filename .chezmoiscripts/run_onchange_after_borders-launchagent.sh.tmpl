@@ -1,0 +1,26 @@
+#!/bin/bash
+# Reload borders LaunchAgent when plist changes
+# plist hash: {{ include "private_Library/private_LaunchAgents/com.felixkratz.borders.plist.tmpl" | sha256sum }}
+
+set -euo pipefail
+
+PLIST="$HOME/Library/LaunchAgents/com.felixkratz.borders.plist"
+SERVICE="com.felixkratz.borders"
+DOMAIN="gui/$(id -u)"
+
+# Skip if plist doesn't exist yet
+if [[ ! -f "$PLIST" ]]; then
+    echo "borders: plist not found, skipping"
+    exit 0
+fi
+
+# Unload if already loaded (ignore errors)
+launchctl bootout "$DOMAIN/$SERVICE" 2>/dev/null || true
+
+# Load the service
+if launchctl bootstrap "$DOMAIN" "$PLIST"; then
+    echo "borders: LaunchAgent loaded successfully"
+else
+    echo "borders: Failed to load LaunchAgent" >&2
+    exit 1
+fi

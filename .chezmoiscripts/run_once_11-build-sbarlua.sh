@@ -13,9 +13,11 @@ mkdir -p "$HOME/.local/share/sketchybar_lua"
 mkdir -p "$HOME/.local/bin"
 
 # Build Lua from SbarLua's bundled source if not installed
-if [ -d "$SBARLUA_SRC/lua-5.4.7" ] && [ ! -f "$LUA_BIN" ]; then
-  echo "Building Lua 5.4.7..."
-  cd "$SBARLUA_SRC/lua-5.4.7"
+LUA_DIR=$(find "$SBARLUA_SRC" -maxdepth 1 -type d -name "lua-*" | head -1)
+
+if [ -n "$LUA_DIR" ] && [ ! -f "$LUA_BIN" ]; then
+  echo "Building Lua from $LUA_DIR..."
+  cd "$LUA_DIR"
   make macosx
   # Only copy binaries (doc directory may not exist)
   cp src/lua src/luac "$HOME/.local/bin/"

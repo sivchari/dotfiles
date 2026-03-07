@@ -5,6 +5,9 @@
 
 set -e
 
+# Ensure aqua-managed tools (ghq) are on PATH
+export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
+
 CC_KIT_REPO="git@github.com:sivchari/cc-kit.git"
 GHQ_ROOT="$(ghq root)"
 

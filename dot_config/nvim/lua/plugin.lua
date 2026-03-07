@@ -89,7 +89,7 @@ return {
 		event = "VeryLazy",
 	},
 	{
-		dir = "~/workspace/other/tinygo.vim",
+        "sago35/tinygo.vim",
 		event = "VeryLazy",
 	},
 }

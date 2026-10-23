@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 USERNAME="$(id -un)"
 HOSTNAME_VALUE="${1:-$(scutil --get LocalHostName 2>/dev/null || hostname -s)}"
 LOCAL_NIX_DIR="${HOME}/.config/dotfiles"
@@ -26,7 +26,7 @@ EOF
 DOTFILES_LOCAL_NIX="${LOCAL_NIX_PATH}" sudo --preserve-env=DOTFILES_LOCAL_NIX nix \
   --extra-experimental-features nix-command \
   --extra-experimental-features flakes \
-  run nix-darwin -- switch --impure --flake "${SCRIPT_DIR}#${HOSTNAME_VALUE}"
+  run nix-darwin -- switch --impure --flake "${REPO_DIR}#${HOSTNAME_VALUE}"
 
 # Register SSH key with GitHub
 SSH_PUB_KEY=""
@@ -72,5 +72,3 @@ if command -v gh &>/dev/null && [ -n "$SSH_PUB_KEY" ]; then
     gh ssh-key add "$SSH_PUB_KEY" --title "${HOSTNAME_VALUE}" --type authentication
   fi
 fi
-
-"${SCRIPT_DIR}/setup.sh"

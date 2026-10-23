@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 HOSTNAME_VALUE="${1:-$(scutil --get LocalHostName 2>/dev/null || hostname -s)}"
 LOCAL_NIX_PATH="${DOTFILES_LOCAL_NIX:-$HOME/.config/dotfiles/local.nix}"
 
@@ -11,4 +11,4 @@ if [ ! -f "${LOCAL_NIX_PATH}" ]; then
 fi
 
 DOTFILES_LOCAL_NIX="${LOCAL_NIX_PATH}" \
-  sudo --preserve-env=DOTFILES_LOCAL_NIX darwin-rebuild switch --impure --flake "${SCRIPT_DIR}#${HOSTNAME_VALUE}"
+  sudo --preserve-env=DOTFILES_LOCAL_NIX darwin-rebuild switch --impure --flake "${REPO_DIR}#${HOSTNAME_VALUE}"

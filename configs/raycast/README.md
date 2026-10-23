@@ -1,17 +1,24 @@
 # Raycast
 
-Raycast の設定は 3 層で管理する。完全な宣言管理は不可能 (設定本体は暗号化 DB) なので、
-層ごとに割り切る。
+Raycast is managed in three layers. Full declarative management is impossible
+(the settings live in an encrypted DB), so each layer uses the strongest
+mechanism it supports.
 
-1. **宣言 (nix)**: 本体のインストール、Spotlight Cmd+Space の無効化、`scripts/` の配布
-   (`~/.config/raycast/scripts`)。rebuild で反映される
-2. **半自動 (`make raycast-import`)**: `snippets.json` を source of truth として deeplink で
-   import。Raycast は同一 snippet を skip するので再実行は冪等
-3. **.rayconfig (`make raycast-backup`)**: extensions・alias/hotkey・拡張設定は export/import
-   でしか持ち運べない。export 時は passphrase を空、clipboard history を除外にする
+1. **Declarative (nix)**: installing Raycast, disabling Spotlight's Cmd+Space,
+   and distributing `scripts/` to `~/.config/raycast/scripts`. Applied on
+   rebuild
+2. **Semi-automatic (`make raycast-import`)**: `snippets.json` is the source of
+   truth, imported via deeplink. Raycast skips identical snippets, so re-running
+   is idempotent
+3. **.rayconfig (`make raycast-backup`)**: extensions, aliases/hotkeys, and
+   extension preferences can only travel via export/import. Export with an
+   empty passphrase and clipboard history excluded
 
-手動のまま残すもの (新マシン 1 回): 初回ログイン、hotkey を Cmd+Space に設定、Accessibility
-権限付与、Settings → Extensions での `~/.config/raycast/scripts` 登録、.rayconfig の import。
+Still manual (once per new machine): first login, assigning Cmd+Space as the
+hotkey, granting Accessibility permission, registering
+`~/.config/raycast/scripts` under Settings -> Extensions, and importing the
+.rayconfig.
 
-注意: nixpkgs 版 Raycast は更新で store path が変わると Accessibility 権限が剥がれることが
-ある。その場合は System Settings で付与し直す。
+Note: the nixpkgs build of Raycast can lose its Accessibility permission when
+an update changes the store path. Re-grant it in System Settings if that
+happens.

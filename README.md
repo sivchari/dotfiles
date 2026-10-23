@@ -5,14 +5,16 @@ My personal dotfiles managed with [Nix](https://nixos.org/) (nix-darwin + home-m
 ## Quick Start
 
 ```bash
-# 1. Install Nix if needed, generate local.nix for this Mac, and apply configuration
-./bootstrap.sh
+# 1. One-shot setup: bootstrap -> setup -> raycast snippets import
+make init
 
 # 2. Set up SSH key for GitHub
 gh auth login -p ssh
 gh ssh-key add ~/.ssh/id_rsa.pub --title "$(scutil --get LocalHostName)" --type signing
 gh ssh-key add ~/.ssh/id_rsa.pub --title "$(scutil --get LocalHostName)" --type authentication
 ```
+
+Run `make` alone to list all targets.
 
 `bootstrap.sh` installs Nix if needed, generates `local.nix` from the current macOS user and `LocalHostName`, and applies the matching flake output. It writes that file to `~/.config/dotfiles/local.nix` so it does not need to be tracked by Git. The bootstrap run enables flakes via `--extra-experimental-features` and passes `DOTFILES_LOCAL_NIX` with `--impure`, so it does not depend on [configs/nix/nix.conf](/Users/takuma.shibuya.001/workspace/sivchari/dotfiles/configs/nix/nix.conf:1) taking effect immediately. If `gh` and `~/.ssh/id_rsa.pub` are present, it adds the SSH key to GitHub only when that key is not already registered.
 
@@ -26,20 +28,21 @@ gh ssh-key add ~/.ssh/id_rsa.pub --title "$(scutil --get LocalHostName)" --type 
 Pass a host explicitly if needed:
 
 ```bash
-./bootstrap.sh My-Mac
+./hack/bootstrap.sh My-Mac
 ```
 
-For daily rebuilds, use the wrapper script:
+For daily rebuilds:
 
 ```bash
-./rebuild.sh
-./rebuild.sh My-Mac
+make rebuild
+./hack/rebuild.sh My-Mac  # with an explicit host
 ```
 
 ## Structure
 
 ```
 .
+├── Makefile                  # Entry point for all tasks (`make` lists targets)
 ├── flake.nix                 # Entry point (single local darwinConfiguration)
 ├── flake.lock
 ├── hosts/darwin/             # nix-darwin system config (launchd, pam, etc.)
@@ -57,21 +60,28 @@ For daily rebuilds, use the wrapper script:
 │   ├── ghostty/              # Terminal
 │   ├── sheldon/              # Zsh plugin manager
 │   ├── lazygit/              # Git TUI
+│   ├── raycast/              # Launcher (snippets, script commands)
 │   └── git/                  # Git ignore
 ├── packages/btmon/           # Custom derivation
-└── hack/                     # Utility scripts
+└── hack/                     # Scripts behind the Makefile targets
 ```
 
 ## Daily Usage
 
 ```bash
 # Apply changes after editing configs
-./rebuild.sh
+make rebuild
 
 # Update nixpkgs
 nix flake update nixpkgs
-./rebuild.sh
+make rebuild
+
+# Raycast: push snippets.json into Raycast / save a .rayconfig backup into the repo
+make raycast-import
+make raycast-backup
 ```
+
+Raycast operations are documented in [configs/raycast/README.md](configs/raycast/README.md).
 
 ## Key Bindings (AeroSpace)
 

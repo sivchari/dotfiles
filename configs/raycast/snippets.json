@@ -1,7 +1,27 @@
 [
   {
-    "name": "Shrug",
-    "keyword": "shrug",
-    "text": "¯\\_(ツ)_/¯"
+    "name": "Today (ISO)",
+    "keyword": "today",
+    "text": "{date format=\"yyyy-MM-dd\"}"
+  },
+  {
+    "name": "Timestamp",
+    "keyword": "now",
+    "text": "{date format=\"yyyy-MM-dd HH:mm\"}"
+  },
+  {
+    "name": "DCO Sign-off",
+    "keyword": "sob",
+    "text": "Signed-off-by: sivchari <shibuuuu5@gmail.com>"
+  },
+  {
+    "name": "PR description",
+    "keyword": "prdesc",
+    "text": "## Summary\n{cursor}\n\n## Why\n"
+  },
+  {
+    "name": "Bug report",
+    "keyword": "repro",
+    "text": "## What happened\n{cursor}\n\n## Steps to reproduce\n1. \n\n## Expected\n\n## Actual\n"
   }
 ]

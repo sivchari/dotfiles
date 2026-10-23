@@ -13,15 +13,5 @@
     "name": "DCO Sign-off",
     "keyword": "sob",
     "text": "Signed-off-by: sivchari <shibuuuu5@gmail.com>"
-  },
-  {
-    "name": "PR description",
-    "keyword": "prdesc",
-    "text": "## Summary\n{cursor}\n\n## Why\n"
-  },
-  {
-    "name": "Bug report",
-    "keyword": "repro",
-    "text": "## What happened\n{cursor}\n\n## Steps to reproduce\n1. \n\n## Expected\n\n## Actual\n"
   }
 ]

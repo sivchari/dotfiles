@@ -69,6 +69,7 @@ in {
       # Desktop Apps
       neovim
       aerospace
+      raycast
       sketchybar
       jankyborders
       ghostty-bin

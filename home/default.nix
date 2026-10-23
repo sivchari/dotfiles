@@ -49,6 +49,11 @@
     in
       builtins.readFile ../configs/herdr/config.toml
       + lib.optionalString (builtins.pathExists localToml) ("\n" + builtins.readFile localToml);
+    # Register this directory once in Raycast: Settings -> Extensions -> Script Commands
+    "raycast/scripts" = {
+      source = ../configs/raycast/scripts;
+      recursive = true;
+    };
     "sheldon/plugins.toml".source = ../configs/sheldon/plugins.toml;
     "sheldon/zsh/sync.zsh".source = ../configs/sheldon/zsh/sync.zsh;
     "git/ignore".source = ../configs/git/ignore;
@@ -62,6 +67,14 @@
       PATH="${pkgs.llvmPackages.clang}/bin:${pkgs.gnumake}/bin:$PATH" make >/dev/null ||
         echo "warning: sketchybar helpers build failed" >&2
     fi
+  '';
+
+  # Free Cmd+Space for Raycast by disabling only Spotlight's hotkey (symbolic
+  # hotkey 64). -dict-add keeps the other entries intact. Takes effect after
+  # re-login; Raycast's own hotkey is still assigned by hand on first launch.
+  home.activation.disableSpotlightHotkey = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    /usr/bin/defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
+      '<dict><key>enabled</key><false/></dict>'
   '';
 
   home.activation.linkSbarLua = lib.hm.dag.entryAfter ["writeBoundary"] ''

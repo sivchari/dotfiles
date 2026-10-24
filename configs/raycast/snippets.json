@@ -3,15 +3,5 @@
     "name": "Today (ISO)",
     "keyword": "today",
     "text": "{date format=\"yyyy-MM-dd\"}"
-  },
-  {
-    "name": "Timestamp",
-    "keyword": "now",
-    "text": "{date format=\"yyyy-MM-dd HH:mm\"}"
-  },
-  {
-    "name": "DCO Sign-off",
-    "keyword": "sob",
-    "text": "Signed-off-by: sivchari <shibuuuu5@gmail.com>"
   }
 ]

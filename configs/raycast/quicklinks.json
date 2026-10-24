@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Search nixpkgs",
+    "link": "https://search.nixos.org/packages?channel=unstable&query={Query}"
+  },
+  {
+    "name": "Search pkg.go.dev",
+    "link": "https://pkg.go.dev/search?q={Query}"
+  },
+  {
+    "name": "Search Kubernetes Docs",
+    "link": "https://kubernetes.io/search/?q={Query}"
+  },
+  {
+    "name": "My Pull Requests",
+    "link": "https://github.com/pulls"
+  },
+  {
+    "name": "GitHub Notifications",
+    "link": "https://github.com/notifications"
+  }
+]

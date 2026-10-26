@@ -7,9 +7,10 @@ mechanism it supports.
 1. **Declarative (nix)**: installing Raycast, disabling Spotlight's Cmd+Space,
    and distributing `scripts/` to `~/.config/raycast/scripts`. Applied on
    rebuild
-2. **Semi-automatic (`make raycast-import`)**: `snippets.json` is the source of
-   truth, imported via deeplink. Raycast skips identical snippets, so re-running
-   is idempotent
+2. **Semi-automatic (`make raycast-import`)**: `snippets.json` and
+   `quicklinks.json` are the source of truth, imported via deeplinks. Raycast
+   skips identical snippets, so re-running them is idempotent; quicklinks can
+   duplicate on re-import, so review the confirmation dialog
 3. **.rayconfig (`make raycast-backup`)**: extensions, aliases/hotkeys, and
    extension preferences can only travel via export/import. Export with an
    empty passphrase and clipboard history excluded

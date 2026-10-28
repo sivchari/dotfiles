@@ -19,5 +19,12 @@ if [ -z "${match}" ]; then
   exit 1
 fi
 
-open "https://${match}"
-echo "Opened ${match}"
+# A ghq root without the host directory lists repos as owner/repo, so add
+# the default host back when the first path segment is not a hostname.
+case "${match%%/*}" in
+  *.*) url="https://${match}" ;;
+  *) url="https://github.com/${match}" ;;
+esac
+
+open "${url}"
+echo "Opened ${url}"

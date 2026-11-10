@@ -23,8 +23,9 @@ if [ ! -x "${GO_DIR}/bin/go" ]; then
 fi
 
 # gokui: Claude Code の skills / agents / rules / hooks を配るバイナリ。
+# repo は private なので GOPRIVATE で proxy / sumdb を迂回する。
 # GOBIN は sync.zsh と同じ ${GO_DIR}/bin。両方の Claude profile に展開する。
-GOBIN="${GO_DIR}/bin" "${GO_DIR}/bin/go" install github.com/sivchari/gokui/cmd/gokui@latest
+GOPRIVATE='github.com/sivchari/*' GOBIN="${GO_DIR}/bin" "${GO_DIR}/bin/go" install github.com/sivchari/gokui/cmd/gokui@latest
 
 for profile in "${HOME}/.claude" "${HOME}/.claude-personal"; do
   CLAUDE_CONFIG_DIR="${profile}" "${GO_DIR}/bin/gokui" install

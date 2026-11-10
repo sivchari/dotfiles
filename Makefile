@@ -13,7 +13,7 @@ init: bootstrap setup raycast-import ## One-shot setup for a new machine
 bootstrap: ## Install Nix, generate local.nix, apply the flake, register SSH key
 	./hack/bootstrap.sh
 
-setup: ## Clone agent-kit and build Go from source
+setup: ## Build Go from source and install gokui
 	./hack/setup.sh
 
 rebuild: ## Apply configuration changes (darwin-rebuild switch)

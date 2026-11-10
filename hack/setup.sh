@@ -1,13 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-AGENT_KIT_DIR="${HOME}/workspace/sivchari/agent-kit"
-
-if [ ! -d "${AGENT_KIT_DIR}" ]; then
-  mkdir -p "$(dirname "${AGENT_KIT_DIR}")"
-  git clone https://github.com/sivchari/agent-kit "${AGENT_KIT_DIR}"
-fi
-
 # Go source build
 GO_DIR="${HOME}/workspace/go/go"
 GO_BOOTSTRAP_DIR="${HOME}/workspace/go/go-darwin-arm64-bootstrap"
@@ -28,3 +21,11 @@ if [ ! -x "${GO_DIR}/bin/go" ]; then
   cd "${GO_DIR}/src"
   GOROOT_BOOTSTRAP="${GO_BOOTSTRAP_DIR}" ./make.bash
 fi
+
+# gokui: Claude Code の skills / agents / rules / hooks を配るバイナリ。
+# GOBIN は sync.zsh と同じ ${GO_DIR}/bin。両方の Claude profile に展開する。
+GOBIN="${GO_DIR}/bin" "${GO_DIR}/bin/go" install github.com/sivchari/gokui/cmd/gokui@latest
+
+for profile in "${HOME}/.claude" "${HOME}/.claude-personal"; do
+  CLAUDE_CONFIG_DIR="${profile}" "${GO_DIR}/bin/gokui" install
+done

@@ -42,13 +42,8 @@
       executable = true;
     };
     "lazygit/config.yml".source = ../configs/lazygit/config.yml;
-    # Appends ~/.config/dotfiles/herdr.local.toml when present, so machine-local
-    # keybindings stay out of this repo. Needs --impure (rebuild.sh already uses it).
-    "herdr/config.toml".text = let
-      localToml = "/Users/${username}/.config/dotfiles/herdr.local.toml";
-    in
-      builtins.readFile ../configs/herdr/config.toml
-      + lib.optionalString (builtins.pathExists localToml) ("\n" + builtins.readFile localToml);
+    # Read by the Rex server; apply edits with `rex config reload` (or shift+cmd+r).
+    "rex/init.lua".source = ../configs/rex/init.lua;
     # Register this directory once in Raycast: Settings -> Extensions -> Script Commands
     "raycast/scripts" = {
       source = ../configs/raycast/scripts;
@@ -58,8 +53,6 @@
     "sheldon/zsh/sync.zsh".source = ../configs/sheldon/zsh/sync.zsh;
     "git/ignore".source = ../configs/git/ignore;
   };
-
-  home.file."Library/Application Support/com.mitchellh.ghostty/config".source = ../configs/ghostty/config;
 
   home.activation.buildSketchybarHelpers = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [ -f "$HOME/.config/sketchybar/helpers/Makefile" ]; then
@@ -75,6 +68,25 @@
   home.activation.disableSpotlightHotkey = lib.hm.dag.entryAfter ["writeBoundary"] ''
     /usr/bin/defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
       '<dict><key>enabled</key><false/></dict>'
+  '';
+
+  # Rex keeps its appearance in UserDefaults, not in init.lua. These keys were
+  # read back after setting them in Rex's Settings; they are not a documented
+  # format, so re-check them if a Rex update ignores them. Rex reads them at
+  # launch: quit Rex before rebuilding, or it may write its old values back.
+  # customThemes is JSON stored as data; configs/rex/acme-theme.json is the
+  # Acme palette imported from the former Ghostty config.
+  home.activation.rexDefaults = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    d() { /usr/bin/defaults write com.superlogical.rex "$@"; }
+    d Workspace.customThemes -data \
+      "$(${pkgs.jq}/bin/jq -cj . ${../configs/rex/acme-theme.json} | /usr/bin/xxd -p | tr -d '\n')"
+    d Workspace.lightThemeID -string custom-24CA9D24-9A08-4045-ABC5-4706505A5960
+    d Workspace.terminalFontName -string "Go Mono"
+    d Workspace.terminalFontPointSize -float 13
+    d Workspace.terminalAllowsLigatures -bool false
+    d Workspace.terminalCursorBlinkUsesCustomInterval -bool false
+    d Workspace.terminalCursorBlinkIntervalMilliseconds -int 0
+    d Workspace.inactivePaneFadeMode -string both
   '';
 
   home.activation.linkSbarLua = lib.hm.dag.entryAfter ["writeBoundary"] ''

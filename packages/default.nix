@@ -31,6 +31,5 @@
   (pkgs.callPackage ./charmbracelet/vhs { })
   (pkgs.callPackage ./oras-project/oras { })
   (pkgs.callPackage ./tilt-dev/tilt { })
-  (pkgs.callPackage ./herdrdev/herdr { })
   (pkgs.callPackage ./k1LoW/mo { })
 ]

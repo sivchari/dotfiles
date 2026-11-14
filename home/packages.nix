@@ -1,28 +1,5 @@
 {pkgs, ...}: let
   dendrite = import ../packages {inherit pkgs;};
-  # herdr は server restart 後の resume で `claude --resume <id>` を素の環境で再実行するため
-  # CLAUDE_CONFIG_DIR が失われ、~/.claude-personal のセッションが "No conversation found" で死ぬ
-  # (herdrdev/herdr#1269, closed as not planned)。session ID の transcript がどの profile に
-  # あるか探して CLAUDE_CONFIG_DIR を補ってから本体を exec する。
-  claude-wrapped = pkgs.writeShellScriptBin "claude" ''
-    if [ -z "''${CLAUDE_CONFIG_DIR:-}" ]; then
-      sid= prev=
-      for arg in "$@"; do
-        case $prev in --resume | -r) sid=$arg ;; esac
-        case $arg in --resume=*) sid=''${arg#--resume=} ;; esac
-        prev=$arg
-      done
-      if [ -n "$sid" ]; then
-        for profile in "$HOME/.claude" "$HOME/.claude-personal"; do
-          if [ -n "$(find "$profile/projects" -maxdepth 2 -name "$sid.jsonl" -print -quit 2>/dev/null)" ]; then
-            export CLAUDE_CONFIG_DIR=$profile
-            break
-          fi
-        done
-      fi
-    fi
-    exec ${pkgs.claude-code}/bin/claude "$@"
-  '';
 in {
   home.packages = with pkgs;
     dendrite
@@ -72,7 +49,6 @@ in {
       raycast
       sketchybar
       jankyborders
-      ghostty-bin
       blueutil
 
       # Fonts
@@ -83,7 +59,7 @@ in {
       plan9port
       sbarlua
       gnumake
-      claude-wrapped
+      claude-code
       codex
 
       # Custom Packages

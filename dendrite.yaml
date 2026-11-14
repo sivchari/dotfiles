@@ -177,10 +177,6 @@ tools:
     asset:
       darwin/arm64: tilt.{version}.mac.arm64.tar.gz
 
-  - name: herdrdev/herdr@v0.8.0
-    asset:
-      darwin/arm64: herdr-macos-aarch64
-
   - name: k1LoW/mo@v1.6.8
     asset:
       darwin/arm64: mo_v{version}_darwin_arm64.zip

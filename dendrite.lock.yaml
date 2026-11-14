@@ -150,11 +150,6 @@ tools:
         darwin_arm64:
             url: https://github.com/tilt-dev/tilt/releases/download/v0.37.3/tilt.0.37.3.mac.arm64.tar.gz
             sha256: sha256-TR9OYEqlymWi3w0ZyemzUc+XA76Ib1L6Xzr9MX2Wj/0=
-    - name: herdrdev/herdr@v0.8.0
-      assets:
-        darwin_arm64:
-            url: https://github.com/herdrdev/herdr/releases/download/v0.8.0/herdr-macos-aarch64
-            sha256: sha256-1Tqfk/zP38xVYyknv1EAL1rdCqeZC831CP+9hKxlgXg=
     - name: k1LoW/mo@v1.6.8
       assets:
         darwin_arm64:

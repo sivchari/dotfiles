@@ -57,7 +57,7 @@ make rebuild
 │   ├── sketchybar/           # Status bar
 │   ├── aerospace/            # Tiling window manager
 │   ├── borders/              # Window borders
-│   ├── ghostty/              # Terminal
+│   ├── rex/                  # Terminal multiplexer (keymap, actions)
 │   ├── sheldon/              # Zsh plugin manager
 │   ├── lazygit/              # Git TUI
 │   ├── raycast/              # Launcher (snippets, script commands)
@@ -94,6 +94,21 @@ Raycast operations are documented in [configs/raycast/README.md](configs/raycast
 | Move to workspace | `ctrl + shift + 1-9` |
 | Toggle layout | `ctrl + t/a/f` |
 | Reload config | `ctrl + shift + ;` then `esc` |
+
+## Key Bindings (Rex)
+
+[Rex](https://www.superlogical.com/rex/) (Rex Beta.app) is installed by hand, outside Nix. `configs/rex/init.lua` keeps Rex's cmd-based defaults (`cmd + t/w/d/k/p`, `cmd + 1-9`, `shift + cmd + enter` zoom) and adds:
+
+| Action | Key |
+|--------|-----|
+| Focus pane | `alt + cmd + hjkl` |
+| Move pane | `alt + shift + cmd + hjkl` |
+| Resize mode (hjkl, `=` balance, `enter`/`esc` leave) | `alt + cmd + r` |
+| Previous / next session | `alt + cmd + [` / `]` |
+| Agent activity | `alt + cmd + a` |
+| lazygit (floating) | `alt + cmd + g` |
+| Reload config | `shift + cmd + r` |
+| Newline | `shift + enter` |
 
 ## Requirements
 

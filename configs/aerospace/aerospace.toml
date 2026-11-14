@@ -40,12 +40,6 @@ outer.bottom = 8
 # Floating window rules
 # =============================================================================
 
-# Ghostty - force tiling layout to prevent macOS native tab issues
-# See: https://github.com/nikitabobko/AeroSpace/issues/778
-[[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = ['layout tiling']
-
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run = ['layout floating']

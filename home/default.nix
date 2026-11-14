@@ -42,13 +42,8 @@
       executable = true;
     };
     "lazygit/config.yml".source = ../configs/lazygit/config.yml;
-    # Appends ~/.config/dotfiles/herdr.local.toml when present, so machine-local
-    # keybindings stay out of this repo. Needs --impure (rebuild.sh already uses it).
-    "herdr/config.toml".text = let
-      localToml = "/Users/${username}/.config/dotfiles/herdr.local.toml";
-    in
-      builtins.readFile ../configs/herdr/config.toml
-      + lib.optionalString (builtins.pathExists localToml) ("\n" + builtins.readFile localToml);
+    # Read by the Rex server; apply edits with `rex config reload` (or shift+cmd+r).
+    "rex/init.lua".source = ../configs/rex/init.lua;
     # Register this directory once in Raycast: Settings -> Extensions -> Script Commands
     "raycast/scripts" = {
       source = ../configs/raycast/scripts;
@@ -58,8 +53,6 @@
     "sheldon/zsh/sync.zsh".source = ../configs/sheldon/zsh/sync.zsh;
     "git/ignore".source = ../configs/git/ignore;
   };
-
-  home.file."Library/Application Support/com.mitchellh.ghostty/config".source = ../configs/ghostty/config;
 
   home.activation.buildSketchybarHelpers = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [ -f "$HOME/.config/sketchybar/helpers/Makefile" ]; then

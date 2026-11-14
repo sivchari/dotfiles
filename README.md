@@ -97,18 +97,23 @@ Raycast operations are documented in [configs/raycast/README.md](configs/raycast
 
 ## Key Bindings (Rex)
 
-[Rex](https://www.superlogical.com/rex/) (Rex Beta.app) is installed by hand, outside Nix. `configs/rex/init.lua` keeps Rex's cmd-based defaults (`cmd + t/w/d/k/p`, `cmd + 1-9`, `shift + cmd + enter` zoom) and adds:
+[Rex](https://www.superlogical.com/rex/) (Rex Beta.app) is installed by hand, outside Nix. `configs/rex/init.lua` keeps Rex's cmd-based defaults (`cmd + t/w/d/k/p`, `cmd + 1-9`) and adds a leader, `cmd + j`, followed by one key:
 
-| Action | Key |
+| Action | Key after `cmd + j` |
 |--------|-----|
-| Focus pane | `alt + cmd + hjkl` |
-| Move pane | `alt + shift + cmd + hjkl` |
-| Resize mode (hjkl, `=` balance, `enter`/`esc` leave) | `alt + cmd + r` |
-| Previous / next session | `alt + cmd + [` / `]` |
-| Agent activity | `alt + cmd + a` |
-| lazygit (floating) | `alt + cmd + g` |
-| Reload config | `shift + cmd + r` |
-| Newline | `shift + enter` |
+| Focus pane | `hjkl` |
+| Split down / right | `-` / `v` |
+| Close pane / zoom / balance | `x` / `z` / `=` |
+| New / next / previous / close tab | `c` / `n` / `p` / `shift + x` |
+| Rename tab / go to tab | `,` / `1-9` |
+| Previous / next session, picker | `shift + h` / `shift + l`, `s` |
+| Agent activity | `a` |
+| Resize mode (hjkl, `=`, `enter`/`esc` leave) | `r` |
+| Move mode (hjkl, `enter`/`esc` leave) | `m` |
+| lazygit (floating) | `g` |
+| Reload config | `shift + r` |
+
+`shift + enter` inserts a newline. Appearance (Acme theme, Go Mono 13pt, no ligatures, steady cursor) is written to Rex's UserDefaults by `home.activation.rexDefaults`.
 
 ## Requirements
 

@@ -70,6 +70,25 @@
       '<dict><key>enabled</key><false/></dict>'
   '';
 
+  # Rex keeps its appearance in UserDefaults, not in init.lua. These keys were
+  # read back after setting them in Rex's Settings; they are not a documented
+  # format, so re-check them if a Rex update ignores them. Rex reads them at
+  # launch: quit Rex before rebuilding, or it may write its old values back.
+  # customThemes is JSON stored as data; configs/rex/acme-theme.json is the
+  # Acme palette imported from the former Ghostty config.
+  home.activation.rexDefaults = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    d() { /usr/bin/defaults write com.superlogical.rex "$@"; }
+    d Workspace.customThemes -data \
+      "$(${pkgs.jq}/bin/jq -cj . ${../configs/rex/acme-theme.json} | /usr/bin/xxd -p | tr -d '\n')"
+    d Workspace.lightThemeID -string custom-24CA9D24-9A08-4045-ABC5-4706505A5960
+    d Workspace.terminalFontName -string "Go Mono"
+    d Workspace.terminalFontPointSize -float 13
+    d Workspace.terminalAllowsLigatures -bool false
+    d Workspace.terminalCursorBlinkUsesCustomInterval -bool false
+    d Workspace.terminalCursorBlinkIntervalMilliseconds -int 0
+    d Workspace.inactivePaneFadeMode -string both
+  '';
+
   home.activation.linkSbarLua = lib.hm.dag.entryAfter ["writeBoundary"] ''
     mkdir -p "$HOME/.local/share/sketchybar_lua"
     ln -sf "${pkgs.sbarlua}/lib/lua/5.5/sketchybar.so" "$HOME/.local/share/sketchybar_lua/sketchybar.so"

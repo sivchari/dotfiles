@@ -57,7 +57,7 @@ make rebuild
 │   ├── sketchybar/           # Status bar
 │   ├── aerospace/            # Tiling window manager
 │   ├── borders/              # Window borders
-│   ├── ghostty/              # Terminal
+│   ├── rex/                  # Terminal multiplexer (keymap, actions)
 │   ├── sheldon/              # Zsh plugin manager
 │   ├── lazygit/              # Git TUI
 │   ├── raycast/              # Launcher (snippets, script commands)
@@ -94,6 +94,26 @@ Raycast operations are documented in [configs/raycast/README.md](configs/raycast
 | Move to workspace | `ctrl + shift + 1-9` |
 | Toggle layout | `ctrl + t/a/f` |
 | Reload config | `ctrl + shift + ;` then `esc` |
+
+## Key Bindings (Rex)
+
+[Rex](https://www.superlogical.com/rex/) (Rex Beta.app) is installed by hand, outside Nix. `configs/rex/init.lua` keeps Rex's cmd-based defaults (`cmd + t/w/d/k/p`, `cmd + 1-9`) and adds a leader, `cmd + j`, followed by one key:
+
+| Action | Key after `cmd + j` |
+|--------|-----|
+| Focus pane | `hjkl` |
+| Split down / right | `-` / `v` |
+| Close pane / zoom / balance | `x` / `z` / `=` |
+| New / next / previous / close tab | `c` / `n` / `p` / `shift + x` |
+| Rename tab / go to tab | `,` / `1-9` |
+| Previous / next session, picker | `shift + h` / `shift + l`, `s` |
+| Agent activity | `a` |
+| Resize mode (hjkl, `=`, `enter`/`esc` leave) | `r` |
+| Move mode (hjkl, `enter`/`esc` leave) | `m` |
+| lazygit (floating) | `g` |
+| Reload config | `shift + r` |
+
+`shift + enter` inserts a newline. Appearance (Acme theme, Go Mono 13pt, no ligatures, steady cursor) is written to Rex's UserDefaults by `home.activation.rexDefaults`.
 
 ## Requirements
 

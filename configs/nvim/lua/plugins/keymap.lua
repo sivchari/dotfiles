@@ -8,8 +8,8 @@ keymap.set("n", "<c-c>", ":NvimTreeClose<cr>", { silent = true })
 keymap.set("n", "tg", '<cmd>lua require("telescope.builtin").live_grep()<cr>')
 keymap.set("n", "tf", '<cmd>lua require("telescope.builtin").find_files()<cr>')
 
--- herdr copy_on_select: nvim grabbing the mouse disables herdr's own selection
--- copy, so copy to the system clipboard on mouse release and restore the selection
+-- nvim grabbing the mouse disables the terminal's own copy on selection, so copy
+-- to the system clipboard on mouse release and restore the selection
 keymap.set("x", "<LeftRelease>", '"+ygv')
 keymap.set("x", "<2-LeftRelease>", '"+ygv')
 keymap.set("x", "<3-LeftRelease>", '"+ygv')

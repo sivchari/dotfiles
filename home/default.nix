@@ -42,7 +42,7 @@
       executable = true;
     };
     "lazygit/config.yml".source = ../configs/lazygit/config.yml;
-    # Read by the Rex server; apply edits with `rex config reload` (or shift+cmd+r).
+    # Read by the Rex server; apply edits with `rex config reload` (or cmd+j then shift+r).
     "rex/init.lua".source = ../configs/rex/init.lua;
     # Register this directory once in Raycast: Settings -> Extensions -> Script Commands
     "raycast/scripts" = {

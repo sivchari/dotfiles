@@ -11,6 +11,7 @@ M.setup = function()
 		"lua_ls",
 		"pyright",
         "clangd",
+		"quint",
 	}
 	for _, lsp in ipairs(lsps) do
 		vim.lsp.config[lsp] = require("plugins.lsp." .. lsp)

@@ -29,6 +29,11 @@ in {
       pnpm
       lua5_5
 
+      # Quint (spec language); verify needs JDK >= 17 for Apalache
+      quint
+      temurin-bin-17
+      (callPackage ../packages/quint-language-server {})
+
       # Language Servers & Dev Tools (nixpkgs)
       gopls
       gotools

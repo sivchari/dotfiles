@@ -3,6 +3,7 @@ vim.filetype.add({
 		graphqls = "graphql",
 		tmpl = "gotmpl",
 		gotmpl = "gotmpl",
+		qnt = "quint",
 	},
 	filename = {
 		["go.mod"] = "gomod",
